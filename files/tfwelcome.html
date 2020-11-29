@@ -10,9 +10,16 @@
         <div class="container">
             <table><tr><td>
             <h2>Hello, your <strong>Galaxy ToolFactory Docker</strong> container is running!</h2>
+            <h3>Important: first run steps</h3>
+            Before using this container, please wait until everything is installed - it can take 10 minutes or more.
+            When it settles down, please restart Galaxy - find the container id (with "docker ps") and try:<br/>
+            <b>docker exec [container id] supervisorctl restart galaxy:</b>
             There is a workflow you need to run and some datasets that should be in a nice new history when you login as admin@galaxy.org<br>
             It should create some demonstration tools. <br/>
-            Each demonstrates a way of using the ToolFactory. Hello runs a bash script with a single parameter. Tacrev uses STDOUT and STDIN without parameters.<br>
+            <H2>After the workflow has run</H2> <br/>
+            There will be 8 new tools installed with the ToolFactory. <br/>
+            Each demonstrates a way of using the ToolFactory.  <br/>
+            Hello runs a bash script with a single parameter. Tacrev uses STDOUT and STDIN without parameters.<br>
             Two simple python scripts to reverse lines in a text file are driven with (pyrevargparse) argparse style and with (pyrevpos) positional parameters.<br>
             The planemo advanced bwa example is shown in two versions. One uses the original Planemo tutorial code to demonstrate a command
             over-ride. An equivalent one using bash and positional parameters might be easier for some programmers. <br>

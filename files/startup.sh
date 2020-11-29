@@ -418,7 +418,8 @@ then
         --tags https
     fi
 fi
-
+# need to always have the toolshed running
+sh run_tool_shed.sh --daemon
 # In case the user wants the default admin to be created, do so.
 if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]
     then
@@ -434,8 +435,6 @@ if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]
            # uses ephemeris, present in docker-galaxy-stable, to wait for the local instance
            /tool_deps/_conda/bin/galaxy-wait -g http://localhost -v --timeout 120 > $GALAXY_LOGS_DIR/post-start-actions.log &&
            /export/post-start-actions.sh >> $GALAXY_LOGS_DIR/post-start-actions.log
-        else
-             sh run_tool_shed.sh --daemon
     fi
 fi
 
