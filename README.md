@@ -3,7 +3,7 @@ Docker Galaxy container with the ToolFactory and demonstration tools. Galaxy as 
 
 **Overview**
 
-*This repository contains the Dockerfile and files needed to build and run the container image at
+```This repository contains the Dockerfile and files needed to build and run the container image at
 https://quay.io/fubar2/toolfactory_galaxy_docker. It allows the user to build new Galaxy tool wrappers inside Galaxy,
 using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
 
@@ -14,7 +14,8 @@ using Planemo from https://github.com/galaxyproject/planemo
 Please do not run this on any production hardware since it uses a privileged docker container exposing potentially
 serious security risks.
 
-Run this only on an easily disposable machine please and remember, if it breaks anything, you own all the pieces*
+Run this only on an easily disposable machine please and remember, if it breaks anything, you own all the pieces
+```
 
 **Audience**
 
