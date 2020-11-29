@@ -11,7 +11,7 @@
             <table><tr><td>
             <h2>Hello, your <strong>Galaxy ToolFactory Docker</strong> container is running!</h2>
             <h3>Important: first run steps</h3>
-            Before using this container, please wait until everything is installed - it can take 10 minutes or more.
+            After building or starting this container for the very first time, please wait until everything is installed - it can take 10-15 minutes or more.
             When the output from
             <h4>docker logs -f [container id]</h4><br/>
             settles down, please restart Galaxy - find the container id (with "docker ps") and try:<br/>
@@ -19,9 +19,9 @@
             There is a workflow you need to run and some datasets that should be in a nice new history when you login as admin@galaxy.org password is password<br>
             It should create some demonstration tools. <br/>
             <h2>After the workflow has run</h2> <br/>
-            There will be 8 new tools installed with the ToolFactory. <br/>
-            Each demonstrates a variation of the patterns that can be generated using the ToolFactory.  <br/>
-            <ul><li>Hello runs a bash script with a single parameter - "World" for example</li>
+            There will be new tools installed with the ToolFactory. <br/>
+            Each demonstrates a variation of the patterns that can be generated and they can be run to see how they look and work.  <br/>
+            <ul><li>Hello runs a bash script with a single user supplied parameter - "World" for example. STDOUT goes to the history</li>
             <li>Tacrev uses STDOUT and STDIN without parameters.</li>
             <li>Two simple python scripts to reverse lines in a text file are driven with (pyrevargparse) argparse style and with (pyrevpos) positional parameters</li>
             <li>The planemo advanced bwa example is shown in two versions. One uses the original Planemo tutorial code to demonstrate a command
