@@ -11,10 +11,15 @@ It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present
 the ToolFactory from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_2. Testing is done
 using Planemo from https://github.com/galaxyproject/planemo
 
-*Please do not run this on any production hardware since it uses a privileged docker container exposing potentially
-serious security risks*
+## Warning
 
-Run this only on an easily disposable machine please. **If it breaks anything of yours, you get to keep all the pieces**
+*Requires running a privileged docker container exposing associated security risks*
+
+Please do not run this on any production or accessible hardware where that kind of risk is usually not acceptable.
+
+Note that all generated tools are normal Galaxy tools with no additional security vulnerabilities from the ToolFactory itself. They
+could be constructed with malicious code but jobs will run as the user so damage should be limited. The ToolFactory just
+makes writing tools easier. Whether they attempt to be malicious is up to the tool author.
 
 ## Intended audience and users
 

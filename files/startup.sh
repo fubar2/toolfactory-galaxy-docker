@@ -418,8 +418,10 @@ then
         --tags https
     fi
 fi
+
 # need to always have the toolshed running
-sh run_tool_shed.sh --daemon
+sh $GALAXY_ROOT/run_tool_shed.sh --daemon
+
 # In case the user wants the default admin to be created, do so.
 if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]
     then
