@@ -3,14 +3,17 @@
 FROM quay.io/bgruening/galaxy:20.09
 MAINTAINER Ross Lazarus ross.lazarus@gmail.com
 # most of the action moved to post-start-actions.sh
-# MUST be copied to export root and made executable - needed to tweak the startup script test for that file from -x (executable) to -f
+# MUST be copied to export root and made executable
 ENV GALAXY_CONFIG_BRAND ToolFactory Docker
 ENV HOST_DOCKER_GID $HOST_DOCKER_GID
 # need to pass in HOST_DOCKER_GID using (e.g.) dockergid=`getent group docker | cut -d: -f3` from the run script
+# the docker group inside the container is changed to match the host so members of the docker group
+# can use the passed docker.sock
 COPY files/hackadmin.py files/install-history.py files/install-deps.py files/galaxy_wait.py /usr/local/bin/
 COPY files/startup.sh /usr/bin/startup
-# uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
+# uses [ -f post-start-actions.sh ] - original has an executable test and it fails even with shebang and ax+
 COPY files/tfwelcome.html /etc/galaxy/web/welcome.html
+# that seems to work.
 COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
 COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
 
