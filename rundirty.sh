@@ -1,4 +1,4 @@
 #!/bin/bash
-docker build -t toolfactory_docker .
+docker build -t quay.io/fubar2/toolfactory-galaxy-docker .
 ./starttoolfactory.sh
 
