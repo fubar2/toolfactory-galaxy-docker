@@ -1,9 +1,20 @@
 # toolfactory-galaxy-docker
-Docker Galaxy container with the ToolFactory and demonstration tools. Galaxy as an IDE in a box.
+Docker Galaxy container with the ToolFactory and demonstration tools. Galaxy as an IDE.
 
-This repository contains the Dockerfile and files needed to build the container image at
-https://quay.io/fubar2/toolfactory_galaxy_docker for building Galaxy tool wrappers inside Galaxy.
+**Overview**
 
+*This repository contains the Dockerfile and files needed to build and run the container image at
+https://quay.io/fubar2/toolfactory_galaxy_docker. It allows the user to build new Galaxy tool wrappers inside Galaxy,
+using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
+
+It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present) and
+the ToolFactory from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_2. Testing is done
+using Planemo from https://github.com/galaxyproject/planemo
+
+Please do not run this on any production hardware since it uses a privileged docker container exposing potentially
+serious security risks.
+
+Run this only on an easily disposable machine please and remember, if it breaks anything, you own all the pieces*
 
 **Audience**
 
@@ -13,14 +24,14 @@ is for users who prefer building and testing new tools *inside the Galaxy UI* !
 **Building the image found at https://quay.io/fubar2/toolfactory_galaxy_docker**
 
 Using the quay.io image will be simplest, but building an image from this Dockerfile is straightforward.
-It is based on https://github.com/bgruening/docker-galaxy-stable so has release 20.09 at present. Once it's
-built, register and login as admin@galaxy.org to become the administrator. Run the
+Once it's built, register and login as admin@galaxy.org to become the administrator. Run the
 supplied workflow from the workflow menu using the history data files in the supplied history to generate all the sample tools -this
 has already been done in the supplied image.
 
 **Starting the Docker image**
 
-The image uses a subdirectory (export/) as recommended for Galaxy docker.
+The image uses a subdirectory (export/) as recommended for Bjoern's Galaxy docker.
+
 There are two supplied shell scripts with appropriate command lines to either start a fresh clean instance or restart
 the image without clearing out the old database and tools:
 
@@ -111,6 +122,8 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
     to the toolshed running in the same container (http://localhost:9009) and then installed inside the Galaxy in the container for further testing.
 
 4. If the test fails, rerunning the failed history job allows errors on the tool form to be edited before rerunning until everything works correctly.
+
+![IHello example ToolFactory tool form](files/hello_toolfactory_form.png?raw=true "Part of the Hello world example ToolFactory tool form")
 
 
 **Generated Tool Dependency management**
