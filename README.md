@@ -3,7 +3,7 @@ Docker Galaxy container with the ToolFactory and demonstration tools. Galaxy as 
 
 **Overview**
 
-```This repository contains the Dockerfile and files needed to build and run the container image at
+This repository contains the Dockerfile and files needed to build and run the container image available from
 https://quay.io/fubar2/toolfactory_galaxy_docker. It allows the user to build new Galaxy tool wrappers inside Galaxy,
 using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
 
@@ -11,13 +11,13 @@ It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present
 the ToolFactory from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_2. Testing is done
 using Planemo from https://github.com/galaxyproject/planemo
 
-Please do not run this on any production hardware since it uses a privileged docker container exposing potentially
-serious security risks.
+*Please do not run this on any production hardware since it uses a privileged docker container exposing potentially
+serious security risks*
 
-Run this only on an easily disposable machine please and remember, if it breaks anything, you own all the pieces
-```
+Run this only on an easily disposable machine please. **If it breaks anything of yours, you get to keep all the pieces**
 
-**Audience**
+
+##Audience
 
 Most developers use Planemo on the command line to prepare and test new Galaxy tools. This image
 is for users who prefer building and testing new tools *inside the Galaxy UI* !
@@ -29,7 +29,7 @@ Once it's built, register and login as admin@galaxy.org to become the administra
 supplied workflow from the workflow menu using the history data files in the supplied history to generate all the sample tools -this
 has already been done in the supplied image.
 
-**Starting the Docker image**
+##Starting the Docker image
 
 The image uses a subdirectory (export/) as recommended for Bjoern's Galaxy docker.
 
@@ -44,7 +44,7 @@ to preserve a working container.
 
 Both will open ports including 8080/9009. Privileged mode is needed to run the planemo biocontainer as a docker-in-docker image.
 
-**Demonstration tools**
+##Demonstration tools
 
 There are currently 8 tools plus the ToolFactory that can be built by running a workflow included in the image.
 They illustrate the range of models for tool execution that the ToolFactory can produce, described in the next section.
@@ -55,16 +55,15 @@ Why doesn't the workflow runner do that?:
 
 The history in which they were all built allows each one to be rerun so you can try re-running them to generating new tools by editing their original build tool form.
 
-**Outputs**
+##ToolFactory generated tools are ordinary Galaxy tools
 
-A ToolFactory generated tool is an ordinary Galaxy tool, ready to publish in any Galaxy Toolshed and ready to install in any running Galaxy instance.
+A ToolFactory generated tool that passes the Planemo test is ready to publish in any Galaxy Toolshed and ready to install in any running Galaxy instance.
 They are fully workflow compatible and work exactly like any hand-written tool. The user can select input files of the specified type(s) from their
 history and edit each of the specified parameters. The tool form will show all the labels and help text supplied when the tool was built. When the tool
 is executed, the dependent binary or script will be passed all the i/o files and parameters as specified, and will write outputs to the specified new
 history datasets - just like any other Galaxy tool.
 
-
-**Models for tool execution**
+##Models for tool execution
 
 The simplest tool model wraps a simple script or Conda dependency package requiring zero parameters, such as filters that take input from STDIN and write to STDOUT.
 These can be configured to take STDOUT and write it to a new history item, and to read a user selected history data file on STDIN.
@@ -93,7 +92,7 @@ The most complex demonstration is the Planemo advanced tool tutorial BWA tool. T
 exactly the same command structure in the Planemo tutorial. A second version uses a bash script and positional parameters to achieve the same
 result. Some users may find the bash version more familiar and cleaner but the choice is yours.
 
-**Building new Galaxy tools**
+##Building new Galaxy tools
 
 It is best to have all the required planning done to wrap any new script or binary.
 
@@ -105,7 +104,8 @@ the inbuilt tool test.
 A new tool is specified by filling in the usual Galaxy tool form.
 
 Small sample data and test parameter settings must be supplied.
-Once the form is completed, executing the ToolFactory will build a new XML tool wrapper including a functional test based on the sample settings and data.
+Once the form is completed, executing the ToolFactory will build a new XML tool wrapper
+including a functional test based on the sample settings and data.
 
 If the Planemo test passes, the tool can be optionally uploaded to the local Galaxy used in the image for more testing.
 
@@ -127,21 +127,21 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
 ![IHello example ToolFactory tool form](files/hello_toolfactory_form.png?raw=true "Part of the Hello world example ToolFactory tool form")
 
 
-**Generated Tool Dependency management**
+##Generated Tool Dependency management
 
 Conda is used for all dependency management although tools that use system utilities like sed, bash or awk
 do not require any dependencies if the utilities are available on job execution nodes. Sed and friends are available as Conda (conda-forge) dependencies if necessary.
 The ToolFactory relies on galaxyxml to generate tool xml, and uses ephemeris and
 bioblend to load tools to the toolshed and to Galaxy.
 
-**Requirements**
+##Requirements
 
 These are all managed automagically. Planemo is used for testing and runs in a biocontainer currently at https://quay.io/fubar2/planemo-biocontainer
 This is needed because at present, Planemo seems to have a bug allowing it to leak dependencies back into the calling environment leaving that
 environment permanently damaged.  So, it is run completely isolated in a separate container. The docker python SDK is used to manage the
 complexities of running docker-in-docker inside the running ToolFactory tool. Trust me - there are complications.
 
-**Caveats**
+##Caveats
 
 This docker image requires privileged mode so exposes all sorts of security risks. Please, do not run it in any situation where that is
 a problem - never, ever on a public facing Galaxy server. On a laptop or workstation should be fine in a non-hostile environment.
