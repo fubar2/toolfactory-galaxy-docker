@@ -9,16 +9,16 @@
     <div class="jumbotron">
         <div class="container">
             <table><tr><td>
-            <h2>Hello, your <strong>Galaxy ToolFactory Docker</strong> container is running!</h2>
-            <h3>Important: first run steps</h3>
+            <h3>Hello, your <strong>Galaxy ToolFactory Docker</strong> container is running!</h3>
+            <h4>Important: first run steps</h4>
             After building or starting this container for the very first time, please wait until everything is installed - it can take 10-15 minutes or more.
             When the output from
-            <h4>docker logs -f [container id]</h4><br/>
+            <b>docker logs -f [container id]</b><br/>
             settles down, please restart Galaxy - find the container id (with "docker ps") and try:<br/>
-            <h4>docker exec [container id] supervisorctl restart galaxy:</h4>
-            There is a workflow you need to run and some datasets that should be in a nice new history when you login as admin@galaxy.org password is password<br>
+            <b>docker exec [container id] sh /usr/local/bin/restartall.sh</b>
+            There is a workflow you can run and some datasets that should be in a new history when you login as admin@galaxy.org password is password<br>
             It should create some demonstration tools. <br/>
-            <h2>After the workflow has run</h2> <br/>
+            <h4>After the workflow has run</h4> <br/>
             There will be new tools installed with the ToolFactory. <br/>
             Each demonstrates a variation of the patterns that can be generated and they can be run to see how they look and work.  <br/>
             <ul><li>Hello runs a bash script with a single user supplied parameter - "World" for example. STDOUT goes to the history</li>
