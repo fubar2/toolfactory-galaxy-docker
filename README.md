@@ -1,7 +1,7 @@
 # toolfactory-galaxy-docker
 Docker Galaxy container with the ToolFactory and demonstration tools.
 
-###A Galaxy IDE for tool wrappers###
+###A Galaxy IDE for tool wrappers
 
 ## Overview
 
