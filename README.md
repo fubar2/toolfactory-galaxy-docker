@@ -190,7 +190,7 @@ On a laptop or workstation should be fine in a non-hostile environment.
 ## Example generated XML
 
 For the bwa-mem example, a supplied bash script is included as a configfile and so has escaped characters.
-`
+```
 <tool name="bwatest" id="bwatest" version="0.01">
   <!--Cite: Creating re-usable tools from scripts doi:10.1093/bioinformatics/bts573-->
   <!--Source in git at: https://github.com/fubar2/toolfactory-->
@@ -260,7 +260,7 @@ Script::
 ]]></help>
 </tool>
 
-`
+```
 
 
 
