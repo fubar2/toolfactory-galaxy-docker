@@ -16,7 +16,7 @@ using Planemo from https://github.com/galaxyproject/planemo
 
 *This container must be run in privileged mode, exposing important potential security risks*
 
-The ToolFactory is a specialised tool that requires a privileged docker container, based on docker_galaxy_stable. Although
+The ToolFactory is a specialised tool that requires a privileged docker container, based on docker-galaxy-stable. Although
 the ToolFactory tool will only run for administrative users, you are strongly advised not to expose this container on any
 public facing production hardware because that potential opportunity for privilege escalation is generally not an acceptable risk.
 
@@ -159,15 +159,14 @@ including a functional test based on the sample settings and data.
 
 If the Planemo test passes, the tool can be optionally uploaded to the local Galaxy used in the image for more testing.
 
-A local toolshed runs inside the container to allow an automated installation, although any toolshed can be specified
-for this process.
+A local toolshed runs inside the container to allow an automated installation, although any toolshed and any accessible
+Galaxy can be specified for this process by editing the default URL and API keys to provide appropriate credentials.
 
 ## Generated Tool Dependency management
 
 Conda is used for all dependency management although tools that use system utilities like sed, bash or awk
-do not require any dependencies if the utilities are available on job execution nodes. Sed and friends are available as
-Conda (conda-forge) dependencies if necessary.
-
+may be available on job execution nodes. Sed and friends are available as Conda (conda-forge) dependencies if necessary.
+Versioned Conda dependencies are always baked-in to the tool and will be used for reproducible calculation.
 
 ## Requirements
 
