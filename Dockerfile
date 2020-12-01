@@ -1,5 +1,5 @@
 # ToolFactory docker based on Bjoern's galaxy docker image
-# galaxy needs sudo
+# needs privileged mode for docker-in-docker planemo biodocker image
 FROM quay.io/bgruening/galaxy:20.09
 MAINTAINER Ross Lazarus ross.lazarus@gmail.com
 # most of the action moved to post-start-actions.sh
