@@ -1,7 +1,6 @@
 # toolfactory-galaxy-docker
-Docker Galaxy container with the ToolFactory and demonstration tools.
-
-### A Galaxy IDE for tool wrappers
+## Docker Galaxy container with the ToolFactory and demonstration tools.
+### A Galaxy IDE for tool wrappers!
 
 ## Overview
 
@@ -109,9 +108,9 @@ result. Some users may find the bash version more familiar and cleaner but the c
 
 Steps in building a new Galaxy tool are all conducted through Galaxy running in the docker container:
 
-1. Open the ToolFactory tool in the Galaxy running in the container at http://localhost:8080
+1. Login to the Galaxy running in the container at http://localhost:8080 using the admin account. They are specified in config/galaxy.yml
 
-2. Fill in the form
+2. Start the ToolFactory and fill in the form, providing sample inputs and parameter values to suit the Conda package being wrapped.
 
 3. Execute the tool to create a new XML tool wrapper using the sample inputs and parameter settings for the inbuilt tool test. Planemo is run to generate the outputs
     from the test. The complete toolshed archive is written to the history together with the planemo test report. Optionally the new tool archive can be uploaded
