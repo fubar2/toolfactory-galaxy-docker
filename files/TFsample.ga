@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "",
     "format-version": "0.1",
-    "name": "ToolFactory samples",
+    "name": "ToolFactory demonstration",
     "steps": {
         "0": {
             "annotation": "",
@@ -20,25 +20,25 @@
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "bottom": 275.1999969482422,
+                "bottom": 254.6999969482422,
                 "height": 82.19999694824219,
                 "left": 393,
                 "right": 593,
-                "top": 193,
+                "top": 172.5,
                 "width": 200,
                 "x": 393,
-                "y": 193
+                "y": 172.5
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false}",
             "tool_version": null,
             "type": "data_input",
-            "uuid": "fd3594a4-16bd-4c40-82be-eb17b3f45927",
+            "uuid": "e6ea5251-52b4-4dc8-a6aa-25cf52816374",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "output",
-                    "uuid": "8cd051be-346f-483b-ace3-ddd5b076dc82"
+                    "uuid": "f3ecdb7a-75eb-4a1f-91b9-7c93c6097147"
                 }
             ]
         },
@@ -51,32 +51,32 @@
             "inputs": [
                 {
                     "description": "",
-                    "name": "bwa-mem-fastq1.fq"
+                    "name": "phiX.fasta"
                 }
             ],
-            "label": "bwa-mem-fastq1.fq",
+            "label": "phiX.fasta",
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "bottom": 395.1999969482422,
-                "height": 82.19999694824219,
+                "bottom": 354.3000030517578,
+                "height": 61.80000305175781,
                 "left": 393,
                 "right": 593,
-                "top": 313,
+                "top": 292.5,
                 "width": 200,
                 "x": 393,
-                "y": 313
+                "y": 292.5
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false}",
             "tool_version": null,
             "type": "data_input",
-            "uuid": "bb014c14-6fb1-4888-9e14-d45e54c1f6ba",
+            "uuid": "f4eaaa60-68a6-48bd-b33b-0b45640ddd3f",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "output",
-                    "uuid": "62e976b8-6d49-4739-b3b7-370636f6a35b"
+                    "uuid": "2b935663-8d3c-4efe-920c-bded02035e9a"
                 }
             ]
         },
@@ -89,40 +89,78 @@
             "inputs": [
                 {
                     "description": "",
-                    "name": "bwa-mem-mt-genome.fa"
+                    "name": "bwa-aln-test1.bam"
                 }
             ],
-            "label": "bwa-mem-mt-genome.fa",
+            "label": "bwa-aln-test1.bam",
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "bottom": 515.1999969482422,
+                "bottom": 494.6999969482422,
                 "height": 82.19999694824219,
                 "left": 393,
                 "right": 593,
-                "top": 433,
+                "top": 412.5,
                 "width": 200,
                 "x": 393,
-                "y": 433
+                "y": 412.5
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false}",
             "tool_version": null,
             "type": "data_input",
-            "uuid": "f2a1482f-6346-46d8-b454-a5f61d66f9d7",
+            "uuid": "566d3d82-1b08-4a91-ac35-e867a4e15dc3",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "output",
-                    "uuid": "1f6a0b99-8738-4af0-8391-82b992e773c2"
+                    "uuid": "00356be2-b152-46b7-8bc5-56206757ee76"
                 }
             ]
         },
         "3": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "content_id": null,
             "errors": null,
             "id": 3,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "bwa-mem-fastq1.fq"
+                }
+            ],
+            "label": "bwa-mem-fastq1.fq",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 614.6999969482422,
+                "height": 82.19999694824219,
+                "left": 393,
+                "right": 593,
+                "top": 532.5,
+                "width": 200,
+                "x": 393,
+                "y": 532.5
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "12105255-0d5a-4910-b411-42d8f887e8b5",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "e06e5103-890c-401e-865a-aeb89b34bd70"
+                }
+            ]
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "errors": null,
+            "id": 4,
             "input_connections": {},
             "inputs": [],
             "label": null,
@@ -138,96 +176,37 @@
                 }
             ],
             "position": {
-                "bottom": 665.6000061035156,
+                "bottom": 765.1000061035156,
                 "height": 112.60000610351562,
                 "left": 393,
                 "right": 593,
-                "top": 553,
+                "top": 652.5,
                 "width": 200,
                 "x": 393,
-                "y": 553
+                "y": 652.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
+                "changeset_revision": "5509dc4c1cf2",
                 "name": "tool_factory_2",
                 "owner": "fubar",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"6b878cc6322c11eba89f0242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Says hello\", \"help_text\": \"**What it Does**\\nToolFactory demonstration\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"yousaid_txt\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:2\"}], \"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"helloto\", \"param_type\": \"text\", \"param_value\": \"World\", \"param_label\": \"Say hello to someone\", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\"}]}, \"tool_name\": \"helloworld\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"echo \\\"Hello $1\\\"\\necho \\\"Goodbye $1\\\"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Says hello\", \"help_text\": \"**What it Does**\\nToolFactory demonstration\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"yousaid_txt\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:2\"}], \"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"helloto\", \"param_type\": \"text\", \"param_value\": \"World\", \"param_label\": \"Say hello to someone\", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\"}]}, \"tool_name\": \"helloworld\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"echo \\\"Hello $1\\\"\\necho \\\"Goodbye $1\\\"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.00",
             "type": "tool",
-            "uuid": "4cdaf7ca-dd72-4916-a7f8-a1601c76a87c",
+            "uuid": "71341f07-5d2b-472b-b1cf-2c7666097f97",
             "workflow_outputs": [
                 {
                     "label": null,
-                    "output_name": "new_tool",
-                    "uuid": "6c94aae5-e492-41ac-aa7a-40b599258066"
-                },
-                {
-                    "label": null,
                     "output_name": "TF_run_report",
-                    "uuid": "a3b45ad1-e211-4573-976a-efed8185ff60"
-                }
-            ]
-        },
-        "4": {
-            "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
-            "errors": null,
-            "id": 4,
-            "input_connections": {
-                "ppass|history_inputs_0|input_files": {
-                    "id": 0,
-                    "output_name": "output"
-                }
-            },
-            "inputs": [],
-            "label": null,
-            "name": "toolfactory",
-            "outputs": [
-                {
-                    "name": "TF_run_report",
-                    "type": "input"
+                    "uuid": "d2d8a999-39dd-4a17-b096-68c8a2433d78"
                 },
-                {
-                    "name": "new_tool",
-                    "type": "tgz"
-                }
-            ],
-            "position": {
-                "bottom": 563.6000061035156,
-                "height": 225.60000610351562,
-                "left": 879,
-                "right": 1079,
-                "top": 338,
-                "width": 200,
-                "x": 879,
-                "y": 338
-            },
-            "post_job_actions": {},
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
-            "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
-                "name": "tool_factory_2",
-                "owner": "fubar",
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            },
-            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"6b878cc6322c11eba89f0242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Reverses lines in a text file. Toolfactory demonstration\", \"help_text\": \"**What it Does**\\nPython script using positional parameters\\n\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Input file to have lines reversed\", \"input_help\": \"\", \"input_CL\": \"1\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"reversed\", \"history_format\": \"txt\", \"history_CL\": \"2\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"pyrevpos\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python3\", \"dynScript\": \"# reverse order of text by row\\nimport sys\\ninp = sys.argv[1]\\noutp = sys.argv[2]\\ni = open(inp,'r').readlines()\\no = open(outp,'w')\\nfor row in i:\\n  rs = row.rstrip()\\n  rs = list(rs)\\n  rs.reverse()\\n  o.write(''.join(rs))\\n  o.write('\\\\n')\\no.close()\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
-            "tool_version": "2.00",
-            "type": "tool",
-            "uuid": "33b62bd9-2153-41d2-8aa1-ef4368379a30",
-            "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "new_tool",
-                    "uuid": "aaa6aa7d-7343-4d72-8668-4a6ad4f6601d"
-                },
-                {
-                    "label": null,
-                    "output_name": "TF_run_report",
-                    "uuid": "8f2e3ba2-6a53-409d-b3a6-6c85edadb5bc"
+                    "uuid": "3f6d5e64-fee3-46ae-8ef7-bc0702aa1dc9"
                 }
             ]
         },
@@ -236,12 +215,7 @@
             "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "errors": null,
             "id": 5,
-            "input_connections": {
-                "ppass|history_inputs_0|input_files": {
-                    "id": 0,
-                    "output_name": "output"
-                }
-            },
+            "input_connections": {},
             "inputs": [],
             "label": null,
             "name": "toolfactory",
@@ -256,37 +230,37 @@
                 }
             ],
             "position": {
-                "bottom": 530.3999938964844,
-                "height": 266.3999938964844,
-                "left": 1096,
-                "right": 1296,
-                "top": 264,
+                "bottom": 864.6999969482422,
+                "height": 92.19999694824219,
+                "left": 393,
+                "right": 593,
+                "top": 772.5,
                 "width": 200,
-                "x": 1096,
-                "y": 264
+                "x": 393,
+                "y": 772.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
+                "changeset_revision": "5509dc4c1cf2",
                 "name": "tool_factory_2",
                 "owner": "fubar",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"6b878cc6322c11eba89f0242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Reverses lines in a text file. Toolfactory demonstration\", \"help_text\": \"**What it Does**\\nPython script using argparse parameters\\n\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Input text file to reverse\", \"input_help\": \"\", \"input_CL\": \"infile\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"outfile\", \"history_format\": \"txt\", \"history_CL\": \"\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"pyrevargparse\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python\", \"dynScript\": \"# reverse order of text by row\\nimport argparse\\nparser = argparse.ArgumentParser()\\na = parser.add_argument\\na('--infile',default='')\\na('--outfile',default=None)\\nargs = parser.parse_args()\\ninp = args.infile\\noutp = args.outfile\\ni = open(inp,'r').readlines()\\no = open(outp,'w')\\nfor row in i:\\n  rs = row.rstrip()\\n  rs = list(rs)\\n  rs.reverse()\\n  o.write(''.join(rs))\\n  o.write('\\\\n')\\no.close()\\n\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Says hello\", \"help_text\": \"**What it Does**\\nTest hello world for the ToolFactory\", \"citations\": []}, \"packages\": \"bash\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"yousaid\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"say\", \"param_type\": \"text\", \"param_value\": \"Sailor\", \"param_label\": \"Say hello to \", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\"}]}, \"tool_name\": \"hello\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"echo \\\"Hello $1\\\"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.00",
             "type": "tool",
-            "uuid": "582bf6e0-f811-451e-9abc-78cc549a50b3",
+            "uuid": "b326f16b-7f91-4111-959a-84be32874f52",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "TF_run_report",
-                    "uuid": "62113c84-0f7e-4046-9526-d04dcf60cde8"
+                    "uuid": "94928846-f491-4419-8d53-61a0799515c9"
                 },
                 {
                     "label": null,
                     "output_name": "new_tool",
-                    "uuid": "f6ad0561-298a-4073-ac38-d68211d0bfeb"
+                    "uuid": "4801d742-3e61-4882-bb2c-0c6f04e3e9f0"
                 }
             ]
         },
@@ -315,37 +289,37 @@
                 }
             ],
             "position": {
-                "bottom": 371.1999969482422,
+                "bottom": 532.6999969482422,
                 "height": 205.1999969482422,
-                "left": 1354,
-                "right": 1554,
-                "top": 166,
+                "left": 736,
+                "right": 936,
+                "top": 327.5,
                 "width": 200,
-                "x": 1354,
-                "y": 166
+                "x": 736,
+                "y": 327.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
+                "changeset_revision": "5509dc4c1cf2",
                 "name": "tool_factory_2",
                 "owner": "fubar",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"6b878cc6322c11eba89f0242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Really, really reverses a text file input\", \"help_text\": \"**What it Does**\\nToolFactory demonstration\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"0\", \"__current_case__\": 2, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Input text to be really reversed\", \"input_help\": \"\", \"input_CL\": \"STDIN\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"reversed\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:2\"}]}, \"tool_name\": \"tacrev\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"tac | rev\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Silly demo using sed to edit a file. Toolfactory demonstration\", \"help_text\": \"**What it Does**\\nCalling sed to bjork a text file input\\n\", \"citations\": []}, \"packages\": \"sed\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Text file input to edit\", \"input_help\": \"\", \"input_CL\": \"2\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"sedtest_output\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"sedstring\", \"param_type\": \"text\", \"param_value\": \"s/self/bjork!bjork!bjork!/g\", \"param_label\": \"sed edit string \", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\"}]}, \"tool_name\": \"sedtest\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.00",
             "type": "tool",
-            "uuid": "69bc1693-bd13-4e3c-a609-a79247c085c6",
+            "uuid": "04c1bd2b-ce09-4b74-9f33-c24a5be0ec16",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "new_tool",
-                    "uuid": "be9853c1-8dfe-4130-bb50-f82ee1fceffd"
+                    "uuid": "665e6c8f-8d6a-4265-bed9-8e4f186699b9"
                 },
                 {
                     "label": null,
                     "output_name": "TF_run_report",
-                    "uuid": "7f585b7e-61f3-4cf9-9d55-202cafbff5c7"
+                    "uuid": "6992b1ee-b17b-40ee-b5c1-4e48edcbcb89"
                 }
             ]
         },
@@ -374,37 +348,37 @@
                 }
             ],
             "position": {
-                "bottom": 645.1999969482422,
+                "bottom": 455.6999969482422,
                 "height": 205.1999969482422,
-                "left": 1474,
-                "right": 1674,
-                "top": 440,
+                "left": 857,
+                "right": 1057,
+                "top": 250.5,
                 "width": 200,
-                "x": 1474,
-                "y": 440
+                "x": 857,
+                "y": 250.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
+                "changeset_revision": "5509dc4c1cf2",
                 "name": "tool_factory_2",
                 "owner": "fubar",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Silly demo using sed to edit a file. Toolfactory demonstration\", \"help_text\": \"**What it Does**\\nCalling sed to bjork a text file input\\n\", \"citations\": []}, \"packages\": \"sed\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Text file input to edit\", \"input_help\": \"\", \"input_CL\": \"2\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"sedtest_output\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": [{\"__index__\": 0, \"param_name\": \"sedstring\", \"param_type\": \"text\", \"param_value\": \"s/self/bjork!bjork!bjork!/g\", \"param_label\": \"sed edit string \", \"param_help\": \"\", \"param_CL\": \"1\", \"param_CLprefixed\": \"\"}]}, \"tool_name\": \"sedtest\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Really, really reverses a text file input\", \"help_text\": \"**What it Does**\\nToolFactory demonstration\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"0\", \"__current_case__\": 2, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Input text to be really reversed\", \"input_help\": \"\", \"input_CL\": \"STDIN\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"reversed\", \"history_format\": \"txt\", \"history_CL\": \"STDOUT\", \"history_test\": \"diff:2\"}]}, \"tool_name\": \"tacrev\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"tac | rev\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.00",
             "type": "tool",
-            "uuid": "3b5bedae-1e3f-496e-b76b-61800b3a2fae",
+            "uuid": "00626098-1b4f-423b-bcbf-89a36a021abb",
             "workflow_outputs": [
                 {
                     "label": null,
-                    "output_name": "new_tool",
-                    "uuid": "f24ad129-d2de-4be2-ba2f-a5636a9bf1e7"
+                    "output_name": "TF_run_report",
+                    "uuid": "47299c74-9083-487b-9753-3c6d0950168a"
                 },
                 {
                     "label": null,
-                    "output_name": "TF_run_report",
-                    "uuid": "f54442b9-cad7-4939-8740-e30896e6ed11"
+                    "output_name": "new_tool",
+                    "uuid": "509ef027-3bce-4cd1-9752-fc35a84f5c26"
                 }
             ]
         },
@@ -415,11 +389,7 @@
             "id": 8,
             "input_connections": {
                 "ppass|history_inputs_0|input_files": {
-                    "id": 2,
-                    "output_name": "output"
-                },
-                "ppass|history_inputs_1|input_files": {
-                    "id": 1,
+                    "id": 0,
                     "output_name": "output"
                 }
             },
@@ -437,37 +407,37 @@
                 }
             ],
             "position": {
-                "bottom": 1109.6000061035156,
-                "height": 337.6000061035156,
-                "left": 882,
-                "right": 1082,
-                "top": 772,
+                "bottom": 400.1000061035156,
+                "height": 225.60000610351562,
+                "left": 1105,
+                "right": 1305,
+                "top": 174.5,
                 "width": 200,
-                "x": 882,
-                "y": 772
+                "x": 1105,
+                "y": 174.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
+                "changeset_revision": "5509dc4c1cf2",
                 "name": "tool_factory_2",
                 "owner": "fubar",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"6b878cc6322c11eba89f0242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Planemo advanced tool building sample bwa mem mapper as a ToolFactory demo\", \"help_text\": \"**What it Does**\\nPlanemo advanced tool building sample bwa mem mapper\\nReimagined as a bash script for a ToolFactory demonstration\", \"citations\": []}, \"packages\": \"bwa:0.7.15,samtools:1.3\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fasta\"], \"input_label\": \"Reference sequence for bwa to map the fastq reads against\", \"input_help\": \"\", \"input_CL\": \"1\"}, {\"__index__\": 1, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fastqsanger\"], \"input_label\": \"Reads as fastqsanger to align to the reference sequence\", \"input_help\": \"\", \"input_CL\": \"2\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"bam_output\", \"history_format\": \"bam\", \"history_CL\": \"3\", \"history_test\": \"sim_size:0.1\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"bwatest\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"REFFILE=$1\\nFASTQ=$2\\nBAMOUT=$3\\nrm -f \\\"refalias\\\"\\nln -s \\\"$REFFILE\\\" \\\"refalias\\\"\\nbwa index -a is \\\"refalias\\\"\\nbwa mem -t \\\"2\\\"  -v 1 \\\"refalias\\\" \\\"$FASTQ\\\"  > tempsam\\nsamtools view -Sb tempsam > temporary_bam_file.bam\\nsamtools sort -o \\\"$BAMOUT\\\" temporary_bam_file.bam\\n\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Reverses lines in a text file. Toolfactory demonstration\", \"help_text\": \"**What it Does**\\nPython script using positional parameters\\n\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Input file to have lines reversed\", \"input_help\": \"\", \"input_CL\": \"1\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"reversed\", \"history_format\": \"txt\", \"history_CL\": \"2\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"pyrevpos\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python3\", \"dynScript\": \"# reverse order of text by row\\nimport sys\\ninp = sys.argv[1]\\noutp = sys.argv[2]\\ni = open(inp,'r').readlines()\\no = open(outp,'w')\\nfor row in i:\\n  rs = row.rstrip()\\n  rs = list(rs)\\n  rs.reverse()\\n  o.write(''.join(rs))\\n  o.write('\\\\n')\\no.close()\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.00",
             "type": "tool",
-            "uuid": "e5ab64e5-7920-4013-a83d-b07b0c43bfc4",
+            "uuid": "25d1320d-8dbe-44ef-9cfe-e58860a71162",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "TF_run_report",
-                    "uuid": "39077283-f79a-463d-a76d-0b4ba6c9a6f8"
+                    "uuid": "56182a4c-8f46-4bdc-9ffc-4f0e35bfc321"
                 },
                 {
                     "label": null,
                     "output_name": "new_tool",
-                    "uuid": "dbd13240-92a3-4d36-b57d-ac40d1c208f4"
+                    "uuid": "2c6774ff-137a-454b-a657-b5816e351158"
                 }
             ]
         },
@@ -478,10 +448,65 @@
             "id": 9,
             "input_connections": {
                 "ppass|history_inputs_0|input_files": {
-                    "id": 2,
+                    "id": 0,
                     "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "TF_run_report",
+                    "type": "input"
                 },
-                "ppass|history_inputs_1|input_files": {
+                {
+                    "name": "new_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "bottom": 479.8999938964844,
+                "height": 266.3999938964844,
+                "left": 1422,
+                "right": 1622,
+                "top": 213.5,
+                "width": 200,
+                "x": 1422,
+                "y": 213.5
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "tool_shed_repository": {
+                "changeset_revision": "5509dc4c1cf2",
+                "name": "tool_factory_2",
+                "owner": "fubar",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Reverses lines in a text file. Toolfactory demonstration\", \"help_text\": \"**What it Does**\\nPython script using argparse parameters\\n\", \"citations\": []}, \"packages\": \"\", \"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"txt\"], \"input_label\": \"Input text file to reverse\", \"input_help\": \"\", \"input_CL\": \"infile\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"outfile\", \"history_format\": \"txt\", \"history_CL\": \"\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"pyrevargparse\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"python\", \"dynScript\": \"# reverse order of text by row\\nimport argparse\\nparser = argparse.ArgumentParser()\\na = parser.add_argument\\na('--infile',default='')\\na('--outfile',default=None)\\nargs = parser.parse_args()\\ninp = args.infile\\noutp = args.outfile\\ni = open(inp,'r').readlines()\\no = open(outp,'w')\\nfor row in i:\\n  rs = row.rstrip()\\n  rs = list(rs)\\n  rs.reverse()\\n  o.write(''.join(rs))\\n  o.write('\\\\n')\\no.close()\\n\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.00",
+            "type": "tool",
+            "uuid": "44bc58e5-8120-4d6e-a18d-a27fb907c6c6",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "TF_run_report",
+                    "uuid": "e0632bcc-d3ca-46b7-8f94-eb4e504f3906"
+                },
+                {
+                    "label": null,
+                    "output_name": "new_tool",
+                    "uuid": "20b48b2a-fbd5-4a21-bade-d79c185ccaf0"
+                }
+            ]
+        },
+        "10": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "errors": null,
+            "id": 10,
+            "input_connections": {
+                "ppass|history_inputs_0|input_files": {
                     "id": 1,
                     "output_name": "output"
                 }
@@ -500,42 +525,168 @@
                 }
             ],
             "position": {
-                "bottom": 1017.3999938964844,
-                "height": 378.3999938964844,
-                "left": 1187,
-                "right": 1387,
-                "top": 639,
+                "bottom": 915.6999969482422,
+                "height": 205.1999969482422,
+                "left": 703,
+                "right": 903,
+                "top": 710.5,
                 "width": 200,
-                "x": 1187,
-                "y": 639
+                "x": 703,
+                "y": 710.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
             "tool_shed_repository": {
-                "changeset_revision": "223b78754735",
+                "changeset_revision": "5509dc4c1cf2",
                 "name": "tool_factory_2",
                 "owner": "fubar",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"6b878cc6322c11eba89f0242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"yes\", \"__current_case__\": 1, \"command_override\": \"## Build reference\\n      #set $reference_fasta_filename = \\\"localref.fa\\\"\\n      ln -s \\\"${ref_file}\\\" \\\"${reference_fasta_filename}\\\" &&\\n      bwa index -a is \\\"${reference_fasta_filename}\\\" &&\\n\\n      ## Begin BWA-MEM command line\\n      bwa mem\\n      -t \\\"\\\\${GALAXY_SLOTS:-4}\\\"\\n      -v 1                                                                       ## Verbosity is set to 1 (errors only)\\n\\n      \\\"${reference_fasta_filename}\\\"\\n      \\\"${fastq_input1}\\\"\\n\\n      | samtools view -Sb - > temporary_bam_file.bam &&\\n      samtools sort -o ${bam_output} temporary_bam_file.bam\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Planemo advanced tool building sample bwa mem mapper ToolFactory version\", \"help_text\": \"**What it Does**\\nPlanemo advanced tool building sample bwa mem mapper\\nCommand override original version\", \"citations\": []}, \"packages\": \"bwa:0.7.15,samtools:1.3\", \"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fasta\"], \"input_label\": \"Reference fasta\", \"input_help\": \"\", \"input_CL\": \"ref_file\"}, {\"__index__\": 1, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fastqsanger\"], \"input_label\": \"Reads to be mapped as fastqsanger\", \"input_help\": \"\", \"input_CL\": \"fastq_input1\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"bam_output\", \"history_format\": \"bam\", \"history_CL\": \"bam_output\", \"history_test\": \"sim_size:0.01\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"bwatestoriginal\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"__input_ext\": \"input\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Planemo perl gc counter script cut and pasted into a ToolFactory form\", \"help_text\": \"**What it Does**\\n\\nEstimate G/C ratio in a fasta sequence\\nDemonstration ToolFactory tool\", \"citations\": []}, \"packages\": \"perl\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fasta\"], \"input_label\": \"Input fasta file to count the G/C ratio\", \"input_help\": \"\", \"input_CL\": \"1\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"gc_count\", \"history_format\": \"txt\", \"history_CL\": \"2\", \"history_test\": \"diff:0\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"perlgc\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"perl\", \"dynScript\": \"#!/usr/bin/perl -w\\n\\n# usage : perl toolExample.pl <FASTA file> <output file>\\n\\nopen (IN, \\\"<$ARGV[0]\\\");\\nopen (OUT, \\\">$ARGV[1]\\\");\\nwhile (<IN>) {\\n    chop;\\n    if (m/^>/) {\\n        s/^>//;\\n        if ($. > 1) {\\n            print OUT sprintf(\\\"%.3f\\\", $gc/$length) . \\\"\\\\n\\\";\\n        }\\n        $gc = 0;\\n        $length = 0;\\n    } else {\\n        ++$gc while m/[gc]/ig;\\n        $length += length $_;\\n    }\\n}\\nprint OUT sprintf(\\\"%.3f\\\", $gc/$length) . \\\"\\\\n\\\";\\nclose( IN );\\nclose( OUT );\\n\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "2.00",
             "type": "tool",
-            "uuid": "b15b0944-69fc-4003-9825-feb013e84fa8",
+            "uuid": "e9e5c320-c98f-462e-bd1a-63d23a79718f",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "TF_run_report",
+                    "uuid": "284c8b8c-7b2b-4471-9f29-ecf925c1fdc4"
+                },
+                {
+                    "label": null,
+                    "output_name": "new_tool",
+                    "uuid": "84d43d21-0e7c-4bbe-adc3-9122aab72c17"
+                }
+            ]
+        },
+        "11": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "errors": null,
+            "id": 11,
+            "input_connections": {
+                "ppass|history_inputs_0|input_files": {
+                    "id": 3,
+                    "output_name": "output"
+                },
+                "ppass|history_inputs_1|input_files": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "TF_run_report",
+                    "type": "input"
+                },
+                {
+                    "name": "new_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "bottom": 907.1000061035156,
+                "height": 337.6000061035156,
+                "left": 998,
+                "right": 1198,
+                "top": 569.5,
+                "width": 200,
+                "x": 998,
+                "y": 569.5
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "tool_shed_repository": {
+                "changeset_revision": "5509dc4c1cf2",
+                "name": "tool_factory_2",
+                "owner": "fubar",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"no\", \"__current_case__\": 0, \"command_override\": \"\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Planemo advanced tool building sample bwa mem mapper as a ToolFactory demo\", \"help_text\": \"**What it Does**\\nPlanemo advanced tool building sample bwa mem mapper\\nReimagined as a bash script for a ToolFactory demonstration\", \"citations\": []}, \"packages\": \"bwa:0.7.15,samtools:1.3\", \"ppass\": {\"parampass\": \"positional\", \"__current_case__\": 1, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fasta\"], \"input_label\": \"Reference sequence for bwa to map the fastq reads against\", \"input_help\": \"\", \"input_CL\": \"1\"}, {\"__index__\": 1, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fastqsanger\"], \"input_label\": \"Reads as fastqsanger to align to the reference sequence\", \"input_help\": \"\", \"input_CL\": \"2\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"bam_output\", \"history_format\": \"bam\", \"history_CL\": \"3\", \"history_test\": \"sim_size:0.1\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"bwatest\", \"usescript\": {\"choosescript\": \"yes\", \"__current_case__\": 1, \"scriptrunner\": \"bash\", \"dynScript\": \"REFFILE=$1\\nFASTQ=$2\\nBAMOUT=$3\\nrm -f \\\"refalias\\\"\\nln -s \\\"$REFFILE\\\" \\\"refalias\\\"\\nbwa index -a is \\\"refalias\\\"\\nbwa mem -t \\\"2\\\"  -v 1 \\\"refalias\\\" \\\"$FASTQ\\\"  > tempsam\\nsamtools view -Sb tempsam > temporary_bam_file.bam\\nsamtools sort -o \\\"$BAMOUT\\\" temporary_bam_file.bam\\n\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.00",
+            "type": "tool",
+            "uuid": "c091d083-5c2f-4c46-9c3d-9509b1d147b2",
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "TF_run_report",
+                    "uuid": "13d06add-677c-4e8c-b076-fe894a8d7f6b"
+                },
+                {
+                    "label": null,
+                    "output_name": "new_tool",
+                    "uuid": "500f9acf-6850-4c2b-b844-d6a3ca155449"
+                }
+            ]
+        },
+        "12": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "errors": null,
+            "id": 12,
+            "input_connections": {
+                "ppass|history_inputs_0|input_files": {
+                    "id": 3,
+                    "output_name": "output"
+                },
+                "ppass|history_inputs_1|input_files": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "toolfactory",
+            "outputs": [
+                {
+                    "name": "TF_run_report",
+                    "type": "input"
+                },
+                {
+                    "name": "new_tool",
+                    "type": "tgz"
+                }
+            ],
+            "position": {
+                "bottom": 989.8999938964844,
+                "height": 378.3999938964844,
+                "left": 1281,
+                "right": 1481,
+                "top": 611.5,
+                "width": 200,
+                "x": 1281,
+                "y": 611.5
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/fubar/tool_factory_2/rgtf2/2.00",
+            "tool_shed_repository": {
+                "changeset_revision": "5509dc4c1cf2",
+                "name": "tool_factory_2",
+                "owner": "fubar",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"__workflow_invocation_uuid__\": \"59227cc632db11eb82300242ac110002\", \"chromInfo\": \"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\", \"cl_prefix\": \"\", \"cover\": {\"commover\": \"yes\", \"__current_case__\": 1, \"command_override\": \"## Build reference\\n      #set $reference_fasta_filename = \\\"localref.fa\\\"\\n      ln -s \\\"${ref_file}\\\" \\\"${reference_fasta_filename}\\\" &&\\n      bwa index -a is \\\"${reference_fasta_filename}\\\" &&\\n\\n      ## Begin BWA-MEM command line\\n      bwa mem\\n      -t \\\"\\\\${GALAXY_SLOTS:-4}\\\"\\n      -v 1                                                                       ## Verbosity is set to 1 (errors only)\\n\\n      \\\"${reference_fasta_filename}\\\"\\n      \\\"${fastq_input1}\\\"\\n\\n      | samtools view -Sb - > temporary_bam_file.bam &&\\n      samtools sort -o ${bam_output} temporary_bam_file.bam\", \"test_override\": \"\"}, \"makeMode\": {\"make_Tool\": \"gentestinstall\", \"__current_case__\": 2, \"galaxy_url\": \"http://localhost:8080\", \"galaxy_apikey\": \"fakekey\", \"toolshed_url\": \"http://localhost:9009\", \"toolshed_apikey\": \"fakekey\", \"tool_version\": \"0.01\", \"tool_desc\": \"Planemo advanced tool building sample bwa mem mapper ToolFactory version\", \"help_text\": \"**What it Does**\\nPlanemo advanced tool building sample bwa mem mapper\\nCommand override original version\", \"citations\": []}, \"packages\": \"bwa:0.7.15,samtools:1.3\", \"ppass\": {\"parampass\": \"argparse\", \"__current_case__\": 0, \"history_inputs\": [{\"__index__\": 0, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fasta\"], \"input_label\": \"Reference fasta\", \"input_help\": \"\", \"input_CL\": \"ref_file\"}, {\"__index__\": 1, \"input_files\": {\"__class__\": \"ConnectedValue\"}, \"input_formats\": [\"fastqsanger\"], \"input_label\": \"Reads to be mapped as fastqsanger\", \"input_help\": \"\", \"input_CL\": \"fastq_input1\"}], \"history_outputs\": [{\"__index__\": 0, \"history_name\": \"bam_output\", \"history_format\": \"bam\", \"history_CL\": \"bam_output\", \"history_test\": \"sim_size:0.01\"}], \"edit_params\": \"yes\", \"additional_parameters\": []}, \"tool_name\": \"bwatestoriginal\", \"usescript\": {\"choosescript\": \"no\", \"__current_case__\": 0, \"dynScript\": \"\", \"scriptrunner\": \"\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.00",
+            "type": "tool",
+            "uuid": "7e5d6c1b-94e1-41e9-b37b-965ef18f14ec",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "new_tool",
-                    "uuid": "deeffa16-4514-4647-9b17-9d8d63039ca7"
+                    "uuid": "da28bc24-c6da-44c3-beb7-012a03cff050"
                 },
                 {
                     "label": null,
                     "output_name": "TF_run_report",
-                    "uuid": "cceb53b9-bbe2-4167-9e02-7bbfd902e87b"
+                    "uuid": "ee1aafae-5363-42df-8e91-3baf4611046d"
                 }
             ]
         }
     },
     "tags": [],
-    "uuid": "fedecb2b-0e7b-41b6-a067-e3d0578bc195",
+    "uuid": "78a577ac-a2d3-4e79-9bdb-e915af00d0f7",
     "version": 1
 }
