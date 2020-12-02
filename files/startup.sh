@@ -397,15 +397,16 @@ then
 fi
 if [ "$USE_HTTPS" != "False" ]
 then
-    if [ -f /export/server.key -a -f /export/server.crt ]
+    if [ -f /export/fullchain.pem -a -f /export/privkey.pem ]
     then
         echo "Copying SSL keys"
         ansible-playbook -c local /ansible/provision.yml \
         --extra-vars gather_facts=False \
         --extra-vars galaxy_extras_config_ssl=True \
         --extra-vars galaxy_extras_config_ssl_method=own \
-        --extra-vars src_nginx_ssl_certificate_key=/export/server.key \
-        --extra-vars src_nginx_ssl_certificate=/export/server.crt \
+        --extra-vars ssl_certificate /export/fullchain.pem  \ ##extra-vars src_nginx_ssl_certificate_key=/export/server.key \
+        --extra-vars ssl_certificate_key /export/privkey.pem \ ##       --extra-vars src_nginx_ssl_certificate=/export/server.crt \
+        --extra vars include /export/options-ssl-nginx.conf \ # managed by Certbot
         --extra-vars galaxy_extras_config_nginx_upload=False \
         --tags https
     else
@@ -418,6 +419,10 @@ then
         --tags https
     fi
 fi
+
+
+
+
 
 # need to always have the toolshed running
 sh $GALAXY_ROOT/run_tool_shed.sh --daemon

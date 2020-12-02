@@ -1,7 +1,12 @@
+# please change these and save as start.sh
+# if you do use let's encrypt, please use your own domain name
 dockergid=`getent group docker | cut -d: -f3`
-sudo docker run -d -p 8080:80 -p 8021:21 -p 8800:8800 -p 9009:9009 \
-    -e ENV USE_HTTPS_LETSENCRYPT=True -e ENV GALAXY_CONFIG_GALAXY_INFRASTRUCTURE_URL galaxy.lazarus.name \
+sudo docker run -d -p 80:8080 -p 443:443 -p 8021:21 -p 8800:8800 -p 9009:9009 \
+    -e USE_HTTPS=True  \
     --privileged=true -e GALAXY_DOCKER_ENABLED=True -e HOST_DOCKER_LEGACY=True \
-    -v export:/export/ -e HOST_DOCKER_GID=$dockergid\
+    -v export:/export/ -e HOST_DOCKER_GID=$dockergid \
     -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /etc/letsencrypt/live/galaxy.lazarus.name/privkey.pem:/export/privkey.pem \
+    -v /etc/letsencrypt/live/galaxy.lazarus.name/fullchain.pem:/export/fullchain.pem \
+    -v /etc/letsencrypt/options-ssl-nginx.conf:/export/options-ssl-nginx.conf \
     quay.io/fubar2/toolfactory-galaxy-docker

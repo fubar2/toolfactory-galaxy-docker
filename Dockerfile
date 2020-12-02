@@ -29,7 +29,6 @@ RUN chmod -R a+x /usr/bin/startup \
   && mkdir -p $GALAXY_ROOT/database/dependencies \
   && mkdir -p $GALAXY_ROOT/tools/toolfactory \
   && /galaxy_venv/bin/python3 -m pip install --upgrade pip \
-  && chown -R galaxy /home/galaxy /galaxy-central \
   && echo "galaxy ALL=(ALL:ALL) NOPASSWD: SETENV: /usr/bin/docker\n" >> /etc/sudoers \
   && apt update -y && apt upgrade -y && apt install -y wget python3-venv python3-pip python3-dev gcc fail2ban build-essential \
   && apt-get clean && apt-get purge \
