@@ -5,5 +5,5 @@ sudo cp files/post-start-actions.sh  export/
 sudo cp files/tfwelcome.html export/
 # comment next line to use the image rather than building it
 docker build -t quay.io/fubar2/toolfactory-galaxy-docker  .
-./starttoolfactory.sh
+./start.sh
 

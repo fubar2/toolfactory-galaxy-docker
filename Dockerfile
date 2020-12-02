@@ -33,7 +33,7 @@ RUN chmod -R a+x /usr/bin/startup \
   && echo "galaxy ALL=(ALL:ALL) NOPASSWD: SETENV: /usr/bin/docker\n" >> /etc/sudoers \
   && apt update -y && apt upgrade -y && apt install -y wget python3-venv python3-pip python3-dev gcc fail2ban build-essential \
   && apt-get clean && apt-get purge \
-  &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && crontab -u galaxy /galaxy-central/whoosh.crontab
 COPY files/TFhistory.tar.gz $GALAXY_ROOT/config/histories/TFhistory.tar.gz
 ADD files/TFsample.ga $GALAXY_ROOT/config/workflows/tf.ga
