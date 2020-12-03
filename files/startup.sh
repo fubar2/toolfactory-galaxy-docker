@@ -384,6 +384,7 @@ else
     start_supervisor
 fi
 
+
 if [ "$USE_HTTPS_LETSENCRYPT" != "False" ]
 then
     echo "Settting up letsencrypt"
@@ -397,16 +398,15 @@ then
 fi
 if [ "$USE_HTTPS" != "False" ]
 then
-    if [ -f /export/fullchain.pem -a -f /export/privkey.pem ]
+    if [ -f /export/server.key -a -f /export/server.crt ]
     then
         echo "Copying SSL keys"
         ansible-playbook -c local /ansible/provision.yml \
         --extra-vars gather_facts=False \
         --extra-vars galaxy_extras_config_ssl=True \
         --extra-vars galaxy_extras_config_ssl_method=own \
-        --extra-vars ssl_certificate /export/fullchain.pem  \ ##extra-vars src_nginx_ssl_certificate_key=/export/server.key \
-        --extra-vars ssl_certificate_key /export/privkey.pem \ ##       --extra-vars src_nginx_ssl_certificate=/export/server.crt \
-        --extra vars include /export/options-ssl-nginx.conf \ # managed by Certbot
+        --extra-vars src_nginx_ssl_certificate_key=/export/server.key \
+        --extra-vars src_nginx_ssl_certificate=/export/server.crt \
         --extra-vars galaxy_extras_config_nginx_upload=False \
         --tags https
     else
@@ -419,8 +419,6 @@ then
         --tags https
     fi
 fi
-
-
 
 
 

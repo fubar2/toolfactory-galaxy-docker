@@ -1,6 +1,4 @@
 #!/bin/bash
-chown -R galaxy /home/galaxy/
-chown -R galaxy /galaxy-central/
 rm -rf /export/tfvm
 OLDPATH=$PATH
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -14,5 +12,5 @@ PATH=/export/tfvm/bin:$PATH
 echo "Loaded ToolFactory workflow and history for admin"
 PATH=$OLDPATH
 /galaxy_venv/bin/python3 $GALAXY_ROOT/scripts/tool_shed/build_ts_whoosh_index.py -c $GALAXY_ROOT/config/tool_shed.yml --config-section tool_shed
-
-
+chown -R galaxy /home/galaxy/*
+chown -R galaxy /galaxy-central/*

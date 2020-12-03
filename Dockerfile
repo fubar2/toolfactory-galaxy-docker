@@ -9,8 +9,6 @@ ENV GALAXY_CONFIG_BRAND ToolFactory Docker
 # so the host docker GID is passed in
 # otherwise the host doesn't seem to be able to launch the planemo-biodocker container
 ENV HOST_DOCKER_GID $HOST_DOCKER_GID
-ENV GALAXY_PORT 80
-ENV PORT 80
 COPY files/hackadmin.py files/install-history.py files/install-deps.py files/galaxy_wait.py files/restartall.sh /usr/local/bin/
 COPY files/startup.sh /usr/bin/startup
 COPY files/whooshcrontab /galaxy-central
