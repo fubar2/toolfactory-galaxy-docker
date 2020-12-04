@@ -1,5 +1,4 @@
 # ToolFactory docker based on Bjoern's galaxy docker image
-# galaxy needs sudo
 FROM quay.io/bgruening/galaxy:20.09
 MAINTAINER Ross Lazarus ross.lazarus@gmail.com
 # most of the action moved to post-start-actions.sh
@@ -10,7 +9,8 @@ ENV GALAXY_CONFIG_BRAND ToolFactory Docker
 # otherwise the host doesn't seem to be able to launch the planemo-biodocker container
 ENV HOST_DOCKER_GID $HOST_DOCKER_GID
 COPY files/hackadmin.py files/install-history.py files/install-deps.py files/galaxy_wait.py files/restartall.sh /usr/local/bin/
-COPY files/startup.sh /usr/bin/startup ### uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
+COPY files/startup.sh /usr/bin/startup
+### starts toolshed and uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
 COPY files/whooshcrontab /galaxy-central
 COPY files/tfwelcome.html /etc/galaxy/web/welcome.html
 COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
