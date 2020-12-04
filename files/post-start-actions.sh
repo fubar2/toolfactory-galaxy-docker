@@ -9,8 +9,6 @@ PATH=/export/tfvm/bin:$PATH
 /export/tfvm/bin/python3 /usr/local/bin/install-history.py -a $GALAXY_DEFAULT_ADMIN_KEY -i $GALAXY_ROOT/config/histories/TFhistory.tar.gz -g http://localhost:8080
 /export/tfvm/bin/shed-tools install -g http://localhost:8080 -a $GALAXY_DEFAULT_ADMIN_KEY -t $GALAXY_ROOT/config/tools/TFtools.yml
 /export/tfvm/bin/python3 /usr/local/bin/hackadmin.py -a $GALAXY_DEFAULT_ADMIN_KEY -g http://localhost:8080 -d $GALAXY_ROOT/database/community.sqlite
-#/export/tfvm/bin/python3 /usr/local/bin/create_users.py -a $GALAXY_DEFAULT_ADMIN_KEY -t http://localhost:9009 -u admin@galaxy.org -n fubar -p changeMe
-#/export/tfvm/bin/python3 /usr/local/bin/install-deps.py -a $GALAXY_DEFAULT_ADMIN_KEY -t rgtf2 -g http://localhost:8080
 echo "Loaded ToolFactory workflow and history for admin"
 PATH=$OLDPATH
 /galaxy_venv/bin/python3 $GALAXY_ROOT/scripts/tool_shed/build_ts_whoosh_index.py -c $GALAXY_ROOT/config/tool_shed.yml --config-section tool_shed

@@ -15,7 +15,7 @@ COPY files/whooshcrontab /galaxy-central
 # uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
 COPY files/tfwelcome.html /etc/galaxy/web/welcome.html
 COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
-COPY files/toolshedfix.sql files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
+COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
 
 RUN chmod -R a+x /usr/bin/startup \
   && groupadd docker \
