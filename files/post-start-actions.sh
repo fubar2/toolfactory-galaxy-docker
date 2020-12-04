@@ -2,6 +2,7 @@
 rm -rf /export/tfvm
 OLDPATH=$PATH
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+sqlite3 $GALAXY_ROOT/database/community.sqlite < $GALAXY_ROOT/config/toolshedfix.sql
 /galaxy_venv/bin/python3 -m venv /export/tfvm && /export/tfvm/bin/python3 -m pip install ephemeris bioblend requests planemo galaxyxml
 PATH=/export/tfvm/bin:$PATH
 /export/tfvm/bin/workflow-install --workflow_path $GALAXY_ROOT/config/workflows/ -g http://localhost:8080 -a $GALAXY_DEFAULT_ADMIN_KEY

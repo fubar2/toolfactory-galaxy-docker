@@ -1,4 +1,5 @@
 #!/bin/bash
-sudo rm export/post-start-actions.sh
+EXPORT_PATH="export"
+sudo rm $EXPORT_PATH/post-start-actions.sh
 ./start.sh
 

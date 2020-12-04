@@ -15,7 +15,7 @@ COPY files/whooshcrontab /galaxy-central
 # uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
 COPY files/tfwelcome.html /etc/galaxy/web/welcome.html
 COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
-COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
+COPY files/toolshedfix.sql files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
 
 RUN chmod -R a+x /usr/bin/startup \
   && groupadd docker \
@@ -28,7 +28,7 @@ RUN chmod -R a+x /usr/bin/startup \
   && mkdir -p $GALAXY_ROOT/tools/toolfactory \
   && /galaxy_venv/bin/python3 -m pip install --upgrade pip \
   && echo "galaxy ALL=(ALL:ALL) NOPASSWD: SETENV: /usr/bin/docker\n" >> /etc/sudoers \
-  && apt update -y && apt upgrade -y && apt install -y wget python3-venv python3-pip python3-dev gcc fail2ban build-essential \
+  && apt update -y && apt upgrade -y && apt install -y wget python3-venv python3-pip python3-dev gcc fail2ban build-essential sqlite3 \
   && apt-get clean && apt-get purge \
   &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && crontab -u galaxy /galaxy-central/whooshcrontab

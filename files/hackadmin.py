@@ -17,24 +17,6 @@ def hacktsuser(args):
         print(e)
 
     now = datetime.datetime.now()
-    auser = (now, now, "admin@galaxy.org", "fubar", "password", "", "", "", "")
-    sql = "UPDATE galaxy_user SET username = 'fubar', password = 'password' WHERE email = 'admin@galaxy.org'"
-    #  (create_time,update_time,email,username,password,external,deleted,purged) VALUES(?,?,?,?,?,?,?,?)
-    cur = conn.cursor()
-    try:
-        cur.execute(sql)
-        conn.commit()
-        print("### executed %s" % sql)
-    except:
-        print("### failed %s" % sql)
-    sql = "INSERT INTO api_keys (user_id,key)  values(1,'fakekey');"
-    cur = conn.cursor()
-    try:
-        cur.execute(sql)
-        conn.commit()
-        print("### executed %s" % sql)
-    except:
-        print("### failed %s" % sql)
     sql = "INSERT INTO category (name, description,deleted)  values('Tool Makers','Makes Tools. Is good.',0);"
     cur = conn.cursor()
     try:
@@ -55,7 +37,6 @@ def hacktsuser(args):
 
 def _parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-g", "--galaxy", help='URL of target galaxy')
     parser.add_argument("-p", "--password", help='Galaxy admin password')
     parser.add_argument("-e", "--email", help='Galaxy admin email')
     parser.add_argument("-a", "--key", help='Galaxy admin key', default=None)
