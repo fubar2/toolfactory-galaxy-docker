@@ -8,7 +8,7 @@ PATH=/export/tfvm/bin:$PATH
 /export/tfvm/bin/workflow-install --workflow_path $GALAXY_ROOT/config/workflows/ -g http://localhost:8080 -a $GALAXY_DEFAULT_ADMIN_KEY
 /export/tfvm/bin/python3 /usr/local/bin/install-history.py -a $GALAXY_DEFAULT_ADMIN_KEY -i $GALAXY_ROOT/config/histories/TFhistory.tar.gz -g http://localhost:8080
 /export/tfvm/bin/shed-tools install -g http://localhost:8080 -a $GALAXY_DEFAULT_ADMIN_KEY -t $GALAXY_ROOT/config/tools/TFtools.yml
-/export/tfvm/bin/python3 /usr/local/bin/hackadmin.py -a $GALAXY_DEFAULT_ADMIN_KEY -g http://localhost:8080 -d $GALAXY_ROOT/database/community.sqlite
+/export/tfvm/bin/python3 /usr/local/bin/hackadmin.py -d $GALAXY_ROOT/database/community.sqlite
 echo "Loaded ToolFactory workflow and history for admin"
 PATH=$OLDPATH
 /galaxy_venv/bin/python3 $GALAXY_ROOT/scripts/tool_shed/build_ts_whoosh_index.py -c $GALAXY_ROOT/config/tool_shed.yml --config-section tool_shed
