@@ -41,6 +41,10 @@ on your preference.
 Running the image from a directory with a subdirectory (export/) is recommended for Bjoern's Galaxy docker because
 it allows persistence between container restarts.
 
+Occasionally, Galaxy fails to launch because the database is not available and after a minute, I just stop that and
+start afresh. Usually launches fine then. The script does a thorough cleanup before it starts. Maybe the docker
+daemon needs more frequent restarts.
+
 There are two supplied shell scripts with appropriate command lines to either start a fresh clean instance or restart
 the image without clearing out the old database and tools:
 

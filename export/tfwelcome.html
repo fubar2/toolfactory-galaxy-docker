@@ -10,21 +10,16 @@
         <div class="container">
             <table><tr><td>
             <h4>Hello, your <strong>Galaxy ToolFactory Docker</strong> container derived from quay.io/bgruening/galaxy:20.09 is running!</h4>
-            <ul>
-                <li><a href="https://github.com/fubar2/toolfactory/blob/master/README.md" target="_blank">ToolFactory README</a></br></li>
-                <li><a href="https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md" target="_blank" >Galaxy Docker README</a> </li>
-            </ul>
-            <font size="4" color="maroon">Initial run of the ToolFactory docker container requires extra steps!</font></br>
-            After building or starting this container for the very first time, please wait until everything is fully installed - it can take 10-15 minutes or more.</br>
-            When the output from <b>docker logs -f [container id]</b> settles down, please restart Galaxy using the supplied restart script:<br/>
-            <b>docker exec [container id] sh /usr/local/bin/restartall.sh</b> </br>
-            The job runner seems to be recalcitrant until after a restart. Not sure why...</br><br/>
-            <font size="3" color="maroon">Note: You MUST be logged in using an administrative account to run the ToolFactory - it will error out for non-admin users</font> </br>
-            There should be a new history containing the demonstration tools as jobs you can rerun and adjust<br>
+            <b>Important: first run steps</b>
+            After building or starting this container for the very first time, please wait until everything is fully installed - it can take 10-15 minutes or more.
+            When the output from
+            <b>docker logs -f [container id]</b><br/>
+            settles down, please restart Galaxy using the supplied restart script:<br/>
+            <b>docker exec [container id] sh /usr/local/bin/restartall.sh</b> For some reason, the job runner will not work until after a restart.</br>
+            When you login, there should be a new history containing the demonstration tools as jobs you can rerun and adjust<br>
             There is also a workflow available that will re-create that history and in the process, install those demonstration tools into
             the Galaxy instance you are using in the ToolFactory section (!) <br/>
-            Each sample demonstrates a variation of the patterns that can be generated. The sample tool generating jobs in the history
-            can be re-run and settings adjusted to experiment with the ToolFactory settings for each tool  <br/>
+            Each demonstrates a variation of the patterns that can be generated and they can be re-run and adjusted to see how they look and work.  <br/>
             <ul><li>Hello runs a bash script with a single user supplied parameter - "World" for example. STDOUT goes to the history</li>
             <li>Tacrev uses STDOUT and STDIN without parameters.</li>
             <li>Two simple python scripts to reverse lines in a text file are driven with (pyrevargparse) argparse style and with (pyrevpos) positional parameters</li>
@@ -33,35 +28,35 @@
             over-ride</b>. An equivalent tool but using bash and positional parameters might be easier to maintain since it doesn't use cheetah markup.</li>
             <li>The Sed example shows how unix utilities like sed - or appropriate Conda package - can be driven using positional parameters</li>
             </ul>
-        </td></tr>
-        </table>
-        </div>
-    </div>
-    </br>
-    <p class="lead" align="center">
             <a target="_blank" href="https://wiki.galaxyproject.org/Admin/Config" class="btn btn-primary btn-lg">Configuring Galaxy »</a>
             <a target="_blank" href="https://wiki.galaxyproject.org/Admin/Tools/AddToolFromToolShedTutorial" class="btn btn-primary btn-lg">Installing Tools »</a>
             <a target="_parent" href="/tours/core.galaxy_ui" class="btn btn-primary btn-lg">Guided Tour »</a>
+            </td><td>
                 <div align=center>
-                    <a href="https://github.com/bgruening/docker-galaxy-stable"><img src="./welcome_image.png" width="15%" height="15%"></a>
+                    <img src="./welcome_image.png" width="90%" height="90%" />
                 </div>
 
-        <p class="lead">
-         </p>
+        </td></tr></table>
+        </div>
+    </div>
 
-        <footer>
+    <div class="container">
+
+        <p class="lead">
             <a target="_blank" class="reference" href="http://galaxyproject.org/">
             Galaxy</a> is an open platform for supporting data intensive
             research. Galaxy is developed by <a target="_blank" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
             with the support of  <a target="_blank" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
-            The Galaxy Docker project is supported by the University of Freiburg, part of de.NBI</br>
+            The Galaxy Docker project is supported by the University of Freiburg, part of de.NBI.
+        </p>
+
+        <footer>
             The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
             is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
             <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
             <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life Sciences</a>,
             <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at Penn State</a>,
             and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.
-
         </footer>
 
     </div>

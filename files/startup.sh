@@ -423,7 +423,12 @@ fi
 
 
 # need to always have the toolshed running
+# using root to run it is interesting - lots of permissions suffer
+#
 sh $GALAXY_ROOT/run_tool_shed.sh --daemon
+/galaxy_venv/bin/python3 $GALAXY_ROOT/scripts/tool_shed/build_ts_whoosh_index.py -c $GALAXY_ROOT/config/tool_shed.yml --config-section tool_shed
+# if root does this, permissions break the cron job to reindex.
+# should probably not care and just let root run the whooshery.
 
 # In case the user wants the default admin to be created, do so.
 if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]

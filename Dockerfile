@@ -30,7 +30,7 @@ RUN chmod -R a+x /usr/bin/startup \
   && apt update -y && apt upgrade -y && apt install -y wget python3-venv python3-pip python3-dev gcc fail2ban build-essential sqlite3 \
   && apt-get clean && apt-get purge \
   &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-  && crontab -u galaxy /galaxy-central/whooshcrontab
+  && crontab -u root /galaxy-central/whooshcrontab
 COPY files/TFhistory.tar.gz $GALAXY_ROOT/config/histories/TFhistory.tar.gz
 ADD files/TFsample.ga $GALAXY_ROOT/config/workflows/tf.ga
 COPY files/TFtools.yml $GALAXY_ROOT/config/tools/TFtools.yml
