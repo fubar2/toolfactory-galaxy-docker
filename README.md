@@ -10,20 +10,21 @@ quay.io/fubar2/toolfactory-galaxy-docker. It allows the user to build new Galaxy
 using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
 
 It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present) and
-the ToolFactory from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_2. Testing is done
-using Planemo from https://github.com/galaxyproject/planemo
+the ToolFactory (TF) from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_2 using galaxyxml, ephemeris
+and biodocker to do the work of generating and installing new tools.
+Generated tools are tested with Planemo from https://github.com/galaxyproject/planemo.
 
 ## Security warning for this container.
 
 *This container must be run in privileged mode, exposing important potential security risks*
 
-The ToolFactory is a specialised tool that requires a privileged docker container, based on docker-galaxy-stable. Although
-the ToolFactory tool will only run for administrative users, you are strongly advised not to expose this container on any
+The TF is a specialised tool that requires a privileged docker container, based on docker-galaxy-stable. Although
+the TF tool will only run for administrative users, you are strongly advised not to expose this container on any
 public facing production hardware because that potential opportunity for privilege escalation is generally not an acceptable risk.
 
-All generated tools are just normal Galaxy tool XML wrappers and tests, with no additional security vulnerabilities from the ToolFactory itself.
+TF generated tools are just normal Galaxy tool XML wrappers and tests, with no additional security vulnerabilities from the ToolFactory itself.
 
-The ToolFactory just makes writing tools easier and uses a familiar Galaxy tool interface. Like any Galaxy tool, ToolFactory products *could* be
+The TF just makes writing tools easier and uses a familiar Galaxy tool interface. Like any Galaxy tool, TF products *could* be
 constructed with malicious code. Outside the privileged docker container used to generate them, generated tools run as normal Galaxy jobs
 in an isolated environment where damage will be limited.
 
@@ -49,7 +50,7 @@ There are two supplied shell scripts with appropriate command lines to either st
 the image without clearing out the old database and tools:
 
 1. runclean.sh will clear out the export/ directory before running. The first run may take 10-15 minutes to configure and start
-Galaxy, a toolshed and install the ToolFactory tool with dependencies.
+Galaxy, a toolshed and install the TF tool with dependencies.
 
 2. rundirty will *not* empty the export/ directory, so can start a previous instance although using docker stop and start is the best way
 to preserve a working container.
@@ -64,8 +65,8 @@ Wait until activity dies down before logging in.
 
 ## Demonstration tools
 
-There are currently 8 tools plus the ToolFactory that are built by running a workflow included in the image.
-They illustrate the range of models for tool execution that the ToolFactory can produce, described in the next section.
+There are currently 8 tools plus the TF that are built by running a workflow included in the image.
+They illustrate the range of models for tool execution that the TF can produce, described in the next section.
 Run the workflow, selecting supplied history dataset names as shown to match the filename prompts in each input file field.
 Why doesn't the workflow runner do that?:
 
@@ -77,7 +78,7 @@ See below for generated examples.
 
 ## ToolFactory generated tools are ordinary Galaxy tools
 
-A ToolFactory generated tool that passes the Planemo test is ready to publish in any Galaxy Toolshed and ready to install in any running Galaxy instance.
+A TF generated tool that passes the Planemo test is ready to publish in any Galaxy Toolshed and ready to install in any running Galaxy instance.
 They are fully workflow compatible and work exactly like any hand-written tool. The user can select input files of the specified type(s) from their
 history and edit each of the specified parameters. The tool form will show all the labels and help text supplied when the tool was built. When the tool
 is executed, the dependent binary or script will be passed all the i/o files and parameters as specified, and will write outputs to the specified new
@@ -115,7 +116,7 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
 
 1. Login to the Galaxy running in the container at http://localhost:8080 using the admin account. They are specified in config/galaxy.yml
 
-2. Start the ToolFactory and fill in the form, providing sample inputs and parameter values to suit the Conda package being wrapped.
+2. Start the TF and fill in the form, providing sample inputs and parameter values to suit the Conda package being wrapped.
 
 3. Execute the tool to create a new XML tool wrapper using the sample inputs and parameter settings for the inbuilt tool test. Planemo is run to generate the outputs
     from the test. The complete toolshed archive is written to the history together with the planemo test report. Optionally the new tool archive can be uploaded
@@ -128,11 +129,11 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
 
 ## Planning and building new Galaxy tool wrappers.
 
-It is best to have all the required planning done to wrap any new script or binary before firing up the ToolFactory.
+It is best to have all the required planning done to wrap any new script or binary before firing up the TF.
 Conda is the only current dependency manager supported. Before starting, at the very least, the user will need
 to know the required software package name in Conda and the version to use, how the command line for
 the package must be constructed, and there must be sample inputs in the working history for each of the required data inputs
-for the package, together with values for every parameter to suit these sample inputs. These are required on the ToolFactory form
+for the package, together with values for every parameter to suit these sample inputs. These are required on the TF form
 for preparing the inbuilt tool test. That test is run using Planemo, as part of the tool generation process.
 
 A new tool is specified by filling in the usual Galaxy tool form.
@@ -159,7 +160,7 @@ the user's history at the end of the job
 on the command line to the executable. The tool builder must supply a suitable representative value for each one as
 the value to be used for the automated tool test.
 
-Once the form is completed, executing the ToolFactory will build a new XML tool wrapper
+Once the form is completed, executing the TF will build a new XML tool wrapper
 including a functional test based on the sample settings and data.
 
 If the Planemo test passes, the tool can be optionally uploaded to the local Galaxy used in the image for more testing.
@@ -175,13 +176,13 @@ Versioned Conda dependencies are always baked-in to the tool and will be used fo
 
 ## Requirements
 
-These are all managed automagically. The ToolFactory relies on galaxyxml to generate tool xml and uses ephemeris and
+These are all managed automagically. The TF relies on galaxyxml to generate tool xml and uses ephemeris and
 bioblend to load tools to the toolshed and to Galaxy. Planemo is used for testing and runs in a biocontainer currently at
 https://quay.io/fubar2/planemo-biocontainer
 
 This is needed because at present, Planemo seems to have a bug allowing it to leak dependencies back into the calling environment leaving that
 environment permanently damaged.  So, it is run completely isolated in a separate container. The docker python SDK is used to manage the
-complexities of running docker-in-docker inside the running ToolFactory tool. Trust me - there are complications.
+complexities of running docker-in-docker inside the running TF tool. Trust me - there are complications.
 
 ## Caveats
 

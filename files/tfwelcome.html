@@ -18,7 +18,7 @@
             After building or starting this container for the very first time, please wait until everything is fully installed - it can take 10-15 minutes or more.</br>
             When the output from <b>docker logs -f [container id]</b> settles down, please restart Galaxy using the supplied restart script:<br/>
             <b>docker exec [container id] sh /usr/local/bin/restartall.sh</b> </br>
-            The job runner seems to be recalcitrant until after a restart. Not sure why...</br><br/>
+            The job runner seems to be recalcitrant until after a restart. Not sure why. If jobs error out with "</br><br/>
             <font size="3" color="maroon">Note: You MUST be logged in using an administrative account to run the ToolFactory - it will error out for non-admin users</font> </br>
             There should be a new history containing the demonstration tools as jobs you can rerun and adjust<br>
             There is also a workflow available that will re-create that history and in the process, install those demonstration tools into
@@ -32,6 +32,7 @@
             <li>The planemo advanced bwa example is shown in two versions. One uses the original Planemo tutorial code to demonstrate a <b>command
             over-ride</b>. An equivalent tool but using bash and positional parameters might be easier to maintain since it doesn't use cheetah markup.</li>
             <li>The Sed example shows how unix utilities like sed - or appropriate Conda package - can be driven using positional parameters</li>
+            <li>The Evil_script_that_fails example tries to create a file where it should not. It should build ok but error out when run</li>
             </ul>
         </td></tr>
         </table>
