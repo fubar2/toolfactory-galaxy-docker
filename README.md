@@ -180,10 +180,6 @@ These are all managed automagically. The TF relies on galaxyxml to generate tool
 bioblend to load tools to the toolshed and to Galaxy. Planemo is used for testing and runs in a biocontainer currently at
 https://quay.io/fubar2/planemo-biocontainer
 
-This is needed because at present, Planemo seems to have a bug allowing it to leak dependencies back into the calling environment leaving that
-environment permanently damaged.  So, it is run completely isolated in a separate container. The docker python SDK is used to manage the
-complexities of running docker-in-docker inside the running TF tool. Trust me - there are complications.
-
 ## Caveats
 
 This docker image requires privileged mode so exposes potential security risks if hostile users gain access.

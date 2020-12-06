@@ -15,3 +15,4 @@ chown -R galaxy /galaxy-central/*
 chown -R galaxy /galaxy-central/database/
 # needed because it's a soft link....
 mv /export/post-start-actions.sh /export/post-start-actions-has-been-run.sh
+# so this script does not get run at next startup
