@@ -1,5 +1,7 @@
 #!/bin/bash
-EXPORT_PATH="export"
+## IMPORTANT - adjust the export_path to suit
+## This is used by Galaxy for persistence. See the docker-galaxy-stable docs.
+EXPORT_PATH="/export"
 sudo rm -rf $EXPORT_PATH/*
 sudo rm -rf $EXPORT_PATH/.distribution_config
 sudo cp files/post-start-actions.sh  $EXPORT_PATH/

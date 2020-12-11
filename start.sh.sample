@@ -1,5 +1,5 @@
-# please adjust as needed and save as start.sh
-EXPORT_PATH="export"
+# please adjust the absolute path to your "export" for the container Galaxy to use and save as start.sh
+EXPORT_PATH="/export"
 dockergid=`getent group docker | cut -d: -f3`
 sudo docker run -d -p 8080:80 -p 8021:21 -p 8800:8800 -p 9009:9009 \
     --privileged=true -e GALAXY_DOCKER_ENABLED=True -e HOST_DOCKER_LEGACY=True \
