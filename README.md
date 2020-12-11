@@ -1,7 +1,4 @@
-# Turbulence expected for an hour or two - until this message vanishes please expect this repository to be broken
-## I'm getting the workflow/history samples all back into sync with a specific docker version of the ToolFactory.
-
-## toolfactory-galaxy-docker
+# toolfactory-galaxy-docker
 
 ## Docker Galaxy container with the ToolFactory and demonstration tools.
 ### A Galaxy IDE for tool wrappers.
@@ -13,7 +10,7 @@ quay.io/fubar2/toolfactory-galaxy-docker. It allows the tool builder to build ne
 using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
 
 It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present) and
-the ToolFactory (TF) from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_2 using galaxyxml, ephemeris
+the ToolFactory (TF) from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_docker using galaxyxml, ephemeris
 and biodocker to do the work of generating and installing new tools.
 Generated tools are tested with Planemo from https://github.com/galaxyproject/planemo.
 
