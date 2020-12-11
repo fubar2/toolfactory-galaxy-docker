@@ -466,6 +466,9 @@ fi
 # migrate custom IEs or Visualisations (Galaxy plugins)
 # this is needed for by the new client build system
 python3 ${GALAXY_ROOT}/scripts/plugin_staging.py
+# restart needed or job runner won't...
+sh /usr/local/bin/restartall.sh
+
 /galaxy_venv/bin/python3 $GALAXY_ROOT/scripts/tool_shed/build_ts_whoosh_index.py -c config/tool_shed.yml --config-section tool_shed
 # Enable verbose output
 if [ `echo ${GALAXY_LOGGING:-'no'} | tr [:upper:] [:lower:]` = "full" ]

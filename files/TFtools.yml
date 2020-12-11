@@ -39,7 +39,7 @@
 api_key: fakekey
 galaxy_instance: http://localhost
 tools:
-- name: tool_factory_2
+- name: tool_factory_docker
   owner: fubar
   tool_panel_section_label: ToolFactory
   install_resolver_dependencies: True

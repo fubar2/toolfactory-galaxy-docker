@@ -1,4 +1,7 @@
-# toolfactory-galaxy-docker
+# Turbulence expected for an hour or two - until this message vanishes please expect this repository to be broken
+## I'm getting the workflow/history samples all back into sync with a specific docker version of the ToolFactory.
+
+## toolfactory-galaxy-docker
 
 ## Docker Galaxy container with the ToolFactory and demonstration tools.
 ### A Galaxy IDE for tool wrappers.
@@ -6,7 +9,7 @@
 ## Overview
 
 This repository contains the Dockerfile and files needed to build and run the container image available from
-quay.io/fubar2/toolfactory-galaxy-docker. It allows the user to build new Galaxy tool wrappers inside Galaxy,
+quay.io/fubar2/toolfactory-galaxy-docker. It allows the tool builder to build new Galaxy tool wrappers inside Galaxy,
 using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
 
 It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present) and
@@ -19,7 +22,7 @@ Generated tools are tested with Planemo from https://github.com/galaxyproject/pl
 *This container must be run in privileged mode, exposing important potential security risks*
 
 The TF is a specialised tool that requires a privileged docker container, based on docker-galaxy-stable. Although
-the TF tool will only run for administrative users, you are strongly advised not to expose this container on any
+the TF tool will only run for administrative tool builders, you are strongly advised not to expose this container on any
 public facing production hardware because that potential opportunity for privilege escalation is generally not an acceptable risk.
 
 TF generated tools are just normal Galaxy tool XML wrappers and tests, with no additional security vulnerabilities from the ToolFactory itself.
@@ -28,21 +31,33 @@ The TF just makes writing tools easier and uses a familiar Galaxy tool interface
 constructed with malicious code. Outside the privileged docker container used to generate them, generated tools run as normal Galaxy jobs
 in an isolated environment where damage will be limited.
 
-## Intended audience and users
+## Intended audience and tool builders
 
 Most developers use Planemo on the command line to prepare and test new Galaxy tools. This image
-is for users who prefer building and testing new tools *inside the Galaxy UI* !
+is for tool builders who prefer building and testing new tools *inside the Galaxy UI* !
+
+## Limitations
+
+The TF is flexible enough to generate wrappers for many common scientific packages
+but the inbuilt automation will not cope with unusual situations. Tool builders can
+supply overrides for two tool XML segments - tests and command and the BWA
+example in the supplied samples workflow illustrates their use. It does not deal with
+repeated elements or conditional parameters such as allowing a user to choose to see "simple"
+or "advanced" parameters (yet) and there will be plenty of packages it just
+won't cover - but it's a quick and efficient tool for the other 90% of cases. Perfect for
+that bash one liner you need to get that workflow functioning correctly for this
+afternoon's demonstration!
 
 ## Building the container
 
-Building an image from this Dockerfile is straightforward but most users will probably want to run one of the startup
+Building an image from this Dockerfile is straightforward but most tool builders will probably want to run one of the startup
 scripts supplied. They will download the https://quay.io/fubar2/toolfactory_galaxy_docker image or build it, depending
 on your preference.
 
 Running the image from a directory with a subdirectory (export/) is recommended for Bjoern's Galaxy docker because
-it allows persistence between container restarts.
+it allows persistence between container restarts. Set this to suit your local needs.
 
-Occasionally, Galaxy fails to launch because the database is not available and after a minute, I just stop that and
+Occasionally, Galaxy fails to launch because the database is not available and after a minute, I just kill it and
 start afresh. Usually launches fine then. The script does a thorough cleanup before it starts. Maybe the docker
 daemon needs more frequent restarts.
 
@@ -56,19 +71,18 @@ Galaxy, a toolshed and install the TF tool with dependencies.
 to preserve a working container.
 
 Both will open ports including 8080/9009. Privileged mode is needed to run the planemo biocontainer as a docker-in-docker image.
-If this is the first time you build the image, please immediately run the restart.sh script. The workflow will break otherwise for reasons
-unknown. A restart seems to work.
+
 
 `docker exec [container id] sh /usr/local/bin/restartall.sh`
 
-Wait until activity dies down before logging in.
+Wait until activity dies down before logging in. A lot happens so expect a 10-15 minute wait on a laptop. When there are no more conda or
+other build processes, you should be ok logging in.
 
 ## Demonstration tools
 
-There are currently 8 tools plus the TF that are built by running a workflow included in the image.
+There are currently a bunch of sample tools built by running a workflow included in the image.
 They illustrate the range of models for tool execution that the TF can produce, described in the next section.
 Run the workflow, selecting supplied history dataset names as shown to match the filename prompts in each input file field.
-Why doesn't the workflow runner do that?:
 
 ![Input file configuration to run the supplied workflow](files/TFWorkflow_setup.png?raw=true "Input file configuration to run the supplied workflow")
 
@@ -84,17 +98,20 @@ history and edit each of the specified parameters. The tool form will show all t
 is executed, the dependent binary or script will be passed all the i/o files and parameters as specified, and will write outputs to the specified new
 history datasets - just like any other Galaxy tool.
 
-## Models for tool execution
+## Models for tool command line construction
 
-The simplest tool model wraps a simple script or Conda dependency package requiring zero parameters, such as filters that take input from STDIN and write to STDOUT.
-These can be configured to take STDOUT and write it to a new history item, and to read a user selected history data file on STDIN.
+The key to turning any software package into a Galaxy tool is the automated construction of a suitable command line. In many cases, the application will expect to find
+input and output file paths, and user settings that adjust the algorithm to suit the analysis. These are often passed as "--name value" (argparse style) or
+in a fixed order (positional style). The ToolFactory allows either, or for "filter" applications that process input from STDIN and write processed output to STDOUT.
 
-This simple model is illustrated by the Tacrev demonstration tool found in the Galaxy running in the container. It passes a user selected input file on STDIN
+A simple tool model wraps a simple script or Conda dependency package requiring only input and output files, with no user supplied settings illustrated by
+the Tacrev demonstration tool found in the Galaxy running in the container. It passes a user selected input file on STDIN
 to a bash script. The bash script runs the unix tac utility (reverse cat) piped to the unix rev (reverse lines in a text file) utility. It's a one liner:
 
 `tac | rev`
 
-and when run, output from STDOUT is sent to a new history file containing the reversed input text. By reversed, we mean really, truly reversed.
+On the tool form, there is an input text file to be selected by the tool user and one new output file created, set to the special value `STDOUT` causing the TF to
+capture STDOUT and send it to a new history file containing the reversed input text. By reversed, we mean really, truly reversed.
 
 That simple model can be made much more complicated, and can pass inputs and outputs as named or positional parameters,
 to allow more complicated scripts or dependent binaries that require:
@@ -108,18 +125,20 @@ More complex models can be seen in the Sedtest, Pyrevpos and Pyrevargparse tools
 
 The most complex demonstration is the Planemo advanced tool tutorial BWA tool. There is one version using a command-override to implement
 exactly the same command structure in the Planemo tutorial. A second version uses a bash script and positional parameters to achieve the same
-result. Some users may find the bash version more familiar and cleaner but the choice is yours.
+result. Some tool builders may find the bash version more familiar and cleaner but the choice is yours.
 
 ## Overview
 
 Steps in building a new Galaxy tool are all conducted through Galaxy running in the docker container:
 
-1. Login to the Galaxy running in the container at http://localhost:8080 using the admin account. They are specified in config/galaxy.yml
+1. Login to the Galaxy running in the container at http://localhost:8080 using anadmin account. They are specified in config/galaxy.yml
+    and the ToolFactory will error out and refuse to run for non-administrative tool builders as a minimal protection from opportunistic hostile use.
 
 2. Start the TF and fill in the form, providing sample inputs and parameter values to suit the Conda package being wrapped.
 
-3. Execute the tool to create a new XML tool wrapper using the sample inputs and parameter settings for the inbuilt tool test. Planemo is run to generate the outputs
-    from the test. The complete toolshed archive is written to the history together with the planemo test report. Optionally the new tool archive can be uploaded
+3. Execute the tool to create a new XML tool wrapper using the sample inputs and parameter settings for the inbuilt tool test. Planemo runs twice.
+    firstly to generate the test outputs and then to perform a proper test. The completed toolshed archive is written to the history
+    together with the planemo test report. Optionally the new tool archive can be uploaded
     to the toolshed running in the same container (http://localhost:9009) and then installed inside the Galaxy in the container for further testing.
 
 4. If the test fails, rerun the failed history job and correct errors on the tool form before rerunning until everything works correctly.
@@ -130,7 +149,7 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
 ## Planning and building new Galaxy tool wrappers.
 
 It is best to have all the required planning done to wrap any new script or binary before firing up the TF.
-Conda is the only current dependency manager supported. Before starting, at the very least, the user will need
+Conda is the only current dependency manager supported. Before starting, at the very least, the tool builder will need
 to know the required software package name in Conda and the version to use, how the command line for
 the package must be constructed, and there must be sample inputs in the working history for each of the required data inputs
 for the package, together with values for every parameter to suit these sample inputs. These are required on the TF form
@@ -145,7 +164,7 @@ If a script is needed, it can be pasted into a text box and the interpreter name
 can be used such as bash, or an interpreter such as python, perl or R can be nominated as conda dependencies
 to ensure reproducible analyses.
 
-The tool form will be generated from the input data and the user supplied parameters. The command line for the
+The tool form will be generated from the input data and the tool builder supplied parameters. The command line for the
 executable is built using positional or argparse (named e.g. --input_file /foo/baz) style
 parameters and is completely dependent on the executable. These can include:
 
@@ -182,7 +201,7 @@ https://quay.io/fubar2/planemo-biocontainer
 
 ## Caveats
 
-This docker image requires privileged mode so exposes potential security risks if hostile users gain access.
+This docker image requires privileged mode so exposes potential security risks if hostile tool builders gain access.
 Please, do not run it in any situation where that is a problem - never, ever on a public facing Galaxy server.
 On a laptop or workstation should be fine in a non-hostile environment.
 
