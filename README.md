@@ -1,7 +1,11 @@
 # toolfactory-galaxy-docker
 
 ## Docker Galaxy container with the ToolFactory and demonstration tools.
-### A Galaxy IDE for tool wrappers.
+
+### A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the TF should cope, your patience may not.
+
+#### Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
+
 
 ## Overview
 
@@ -10,9 +14,9 @@ quay.io/fubar2/toolfactory-galaxy-docker. It allows the tool builder to build ne
 using the specialised ToolFactory tool - a Galaxy tool that generates tool wrappers.
 
 It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present) and
-the ToolFactory (TF) from https://toolshed.g2.bx.psu.edu/view/fubar/tool_factory_docker using galaxyxml, ephemeris
-and biodocker to do the work of generating and installing new tools.
-Generated tools are tested with Planemo from https://github.com/galaxyproject/planemo.
+the ToolFactory (TF) from https://github.com/fubar2/toolfactory_docker using galaxyxml, ephemeris
+and biodocker to do the work of generating and installing new tools. Generated tools are tested with Planemo
+from https://github.com/galaxyproject/planemo.
 
 ## Security warning for this container.
 
@@ -69,11 +73,8 @@ to preserve a working container.
 
 Both will open ports including 8080/9009. Privileged mode is needed to run the planemo biocontainer as a docker-in-docker image.
 
-
-`docker exec [container id] sh /usr/local/bin/restartall.sh`
-
-Wait until activity dies down before logging in. A lot happens so expect a 10-15 minute wait on a laptop. When there are no more conda or
-other build processes, you should be ok logging in.
+Wait until activity, particularly conda and pip, dies down before logging in. A lot happens so expect a 10-15 minute wait on a laptop. When there are no more conda or
+other build processes, you should be ok logging in using credentials described at https://github.com/bgruening/docker-galaxy-stable
 
 ## Demonstration tools
 
@@ -87,6 +88,7 @@ The history in which they were all built allows each one to be rerun so you can 
 
 See below for generated examples.
 
+
 ## ToolFactory generated tools are ordinary Galaxy tools
 
 A TF generated tool that passes the Planemo test is ready to publish in any Galaxy Toolshed and ready to install in any running Galaxy instance.
@@ -97,18 +99,33 @@ history datasets - just like any other Galaxy tool.
 
 ## Models for tool command line construction
 
-The key to turning any software package into a Galaxy tool is the automated construction of a suitable command line. In many cases, the application will expect to find
-input and output file paths, and user settings that adjust the algorithm to suit the analysis. These are often passed as "--name value" (argparse style) or
-in a fixed order (positional style). The ToolFactory allows either, or for "filter" applications that process input from STDIN and write processed output to STDOUT.
+The key to turning any software package into a Galaxy tool is the automated construction of a suitable command line.
 
-A simple tool model wraps a simple script or Conda dependency package requiring only input and output files, with no user supplied settings illustrated by
-the Tacrev demonstration tool found in the Galaxy running in the container. It passes a user selected input file on STDIN
+The TF can build a new tool that will allow the tool user to select input files from their history, set any parameters and when run will send the
+new output files to the history as specified when the tool builder completed the form and built the new tool.
+
+That tool can contain instructions to run any Conda dependency or a system executable like bash. Whether a bash script you have written or
+a Conda package like bwa, the executable will expect to find settings for input, output and parameters on a command line.
+
+IThese are often passed as "--name value" (argparse style) or in a fixed order (positional style).
+
+The ToolFactory allows either, or for "filter" applications that process input from STDIN and write processed output to STDOUT.
+
+The simplest tool model wraps a simple script or Conda dependency package requiring only input and output files, with no user supplied settings illustrated by
+the Tacrev demonstration tool found in the Galaxy running in the ToolFactory docker container. It passes a user selected input file from the current history on STDIN
 to a bash script. The bash script runs the unix tac utility (reverse cat) piped to the unix rev (reverse lines in a text file) utility. It's a one liner:
 
 `tac | rev`
 
-On the tool form, there is an input text file to be selected by the tool user and one new output file created, set to the special value `STDOUT` causing the TF to
-capture STDOUT and send it to a new history file containing the reversed input text. By reversed, we mean really, truly reversed.
+The tool building form allows naming zero or more Conda package name(s) and version(s) and the supply of a script to be executed by either a system
+executable like ``bash`` or the first of any named Conda dependency package/version. Tacrev uses a tiny bash script shown above and uses the system
+bash. Conda bash can be specified if it is important to use the same version consistently for the tool.
+
+On the tool form, the repeat section allowing zero or more input files was set to be a text file to be selected by the tool user and
+in the repeat section allowing one or more outputs, a new output file with special value `STDOUT` as the positional parameter, causes the TF to
+generate a command to capture STDOUT and send it to the new history file containing the reversed input text.
+
+By reversed, we mean really, truly reversed.
 
 That simple model can be made much more complicated, and can pass inputs and outputs as named or positional parameters,
 to allow more complicated scripts or dependent binaries that require:
@@ -128,7 +145,8 @@ result. Some tool builders may find the bash version more familiar and cleaner b
 
 Steps in building a new Galaxy tool are all conducted through Galaxy running in the docker container:
 
-1. Login to the Galaxy running in the container at http://localhost:8080 using anadmin account. They are specified in config/galaxy.yml
+1. Login to the Galaxy running in the container at http://localhost:8080 using an admin account. They are specified in config/galaxy.yml and
+    in the documentation at
     and the ToolFactory will error out and refuse to run for non-administrative tool builders as a minimal protection from opportunistic hostile use.
 
 2. Start the TF and fill in the form, providing sample inputs and parameter values to suit the Conda package being wrapped.
