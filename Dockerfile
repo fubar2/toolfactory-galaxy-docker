@@ -1,4 +1,5 @@
 # ToolFactory docker based on Bjoern's galaxy docker image
+# quay.io/fubar2/toolfactory-galaxy-docker
 FROM quay.io/bgruening/galaxy:20.09
 MAINTAINER Ross Lazarus ross.lazarus@gmail.com
 # most of the action moved to post-start-actions.sh

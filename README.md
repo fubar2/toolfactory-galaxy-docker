@@ -1,5 +1,7 @@
 # toolfactory-galaxy-docker
 
+Available from quay.io/fubar2/toolfactory-galaxy-docker
+
 ## Docker Galaxy container with the ToolFactory and demonstration tools.
 
 ### A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the TF should cope, your patience may not.
