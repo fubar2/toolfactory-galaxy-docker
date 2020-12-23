@@ -14,8 +14,8 @@ COPY files/startup.sh /usr/bin/startup
 ### starts toolshed and uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
 COPY files/whooshcrontab /galaxy-central
 COPY files/tfwelcome.html /etc/galaxy/web/welcome.html
-COPY files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
-COPY files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
+COPY files/datatypes_conf.xml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
+COPY files/datatypes_conf.xml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
 #COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
 #COPY files/galaxy.yml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
 
