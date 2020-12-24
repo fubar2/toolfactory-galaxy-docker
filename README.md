@@ -8,6 +8,7 @@ Available from quay.io/fubar2/toolfactory-galaxy-docker
 
 #### Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
 
+## Video hello world demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing
 
 ## Overview
 
