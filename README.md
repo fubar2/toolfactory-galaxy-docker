@@ -1,14 +1,14 @@
 # toolfactory-galaxy-docker
 
-Available from quay.io/fubar2/toolfactory-galaxy-docker
-
 ## Docker Galaxy container with the ToolFactory and demonstration tools.
 
-### A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the TF should cope, your patience may not.
+#### A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the TF should cope, your patience may not. The ToolFactory turns Galaxy into an integrated
+development environment for tool builders. It won't suit every tool or every tool builder. Available from quay.io/fubar2/toolfactory-galaxy-docker but you
+probably want a startup script like the one provided here as a sample to set all the ports and volumes.
 
-#### Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
+#### Update: Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
 
-##### Video hello world demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing
+##### Update: Video hello world demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing
 
 ## Overview
 
@@ -20,6 +20,9 @@ It relies on https://github.com/bgruening/docker-galaxy-stable (20.09 at present
 the ToolFactory (TF) from https://github.com/fubar2/toolfactory_docker using galaxyxml, ephemeris
 and biodocker to do the work of generating and installing new tools. Generated tools are tested with Planemo
 from https://github.com/galaxyproject/planemo.
+
+A tool can be built by specifying a Conda or system executable, an optional script and the command line elements needed to run it. The tool will
+contain a test and can optionally be installed into the docker Galaxy for further testing.
 
 ## Security warning for this container.
 
