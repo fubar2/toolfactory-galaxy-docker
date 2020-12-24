@@ -5,7 +5,7 @@ EXPORT_PATH="/export"
 sudo rm -rf $EXPORT_PATH/*
 sudo rm -rf $EXPORT_PATH/.distribution_config
 sudo cp files/post-start-actions.sh  $EXPORT_PATH/
-sudo cp files/tfwelcome.html $EXPORT_PATH/
+sudo cp files/tfwelcome.html $EXPORT_PATH/welcome.html
 # comment next line to use the image rather than building it
 docker build -t quay.io/fubar2/toolfactory-galaxy-docker  .
 ./start.sh

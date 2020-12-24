@@ -20,7 +20,8 @@
             The new history and workflow won't be imported until the ToolFactory is installed from the toolshed - sometimes a slow process.</br><br/>
             <font size="3" color="maroon">Note: You MUST be logged in using an administrative account to run the ToolFactory - it will error out for non-admin users</font> </br>
             Generated tools are just ordinary Galaxy tools. They work for any user and in workflows.<br/>
-            Generating a tool takes at least a minute or two. Planemo is run twice - once to generate test outputs then to test - so add that to the runtime for your test data</br>
+            Generating a tool takes 1.5-4 minutes on my old desktop. Planemo is run twice and a Galaxy is built and torn down each time. The first run is to generate
+            test outputs that are added to the new tool archive. The second time those sample outputs are tested. Conda adds time to install the dependencies and then there's the actual runtime for the test data</br>
             There should be a new history containing the demonstration tools. Each Toolshed tarball output has a redo button so you can adjust and regenerate a modified tool<br>
             There is also a workflow available that will re-create that history and in the process, install those demonstration tools into
             the Galaxy instance you are using in the ToolFactory section. When you run the workflow, copies of the supplied samples can be
@@ -32,8 +33,8 @@
             <li>Two simple python scripts to reverse lines in a text file are driven with (pyrevargparse) argparse style and with (pyrevpos) positional parameters</li>
             <li>The perl GC counter takes positional parameters and is taken straight from the Planemo documentation tool examples</li>
             <li>The planemo advanced bwa example is shown in two versions. One uses the original Planemo tutorial code to demonstrate a <b>command
-            over-ride</b>. An equivalent tool but using bash and positional parameters might be easier to maintain since it doesn't use cheetah markup.</li>
-            <li>The Sed example shows how unix utilities like sed - or appropriate Conda package - can be driven using positional parameters</li>
+            over-ride</b>. An equivalent tool but using bash and positional parameters might be easier for some tool builders since it doesn't use mako/markup.</li>
+            <li>The Sed example shows how unix utilities like sed - or any Conda package - can be driven using positional parameters</li>
             <li>The Evil_script_that_fails example tries to create a file where it should not. It should build ok but an error should be noted in the history tgz after it runs.</li>
             <li>five_parameters has 5 positional parameters. Galaxy forms were not designed for this complexity. Need to be able to copy a replicate element to edit.</li>
             </ul>
