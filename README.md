@@ -2,13 +2,14 @@
 
 ## Docker Galaxy container with the ToolFactory and demonstration tools.
 
-#### A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the TF should cope, your patience may not. The ToolFactory turns Galaxy into an integrated
-development environment for tool builders. It won't suit every tool or every tool builder. Available from quay.io/fubar2/toolfactory-galaxy-docker but you
-probably want a startup script like the one provided here as a sample to set all the ports and volumes.
+A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the TF should cope, your patience may not.
+The ToolFactory turns Galaxy into an integrateddevelopment environment for tool builders.
+It won't suit every tool or every tool builder. Available from quay.io/fubar2/toolfactory-galaxy-docker but you probably want a
+startup script like the ones provided here as samples to set all the ports and volumes.
 
-#### Update: Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
+Update: Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
 
-##### Update: Video hello world demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing
+Update: Video hello world demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing
 
 ## Overview
 
