@@ -13,7 +13,7 @@ COPY files/hackadmin.py files/install-history.py files/install-deps.py files/gal
 COPY files/startup.sh /usr/bin/startup
 ### starts toolshed and uses -f post-start-actions.sh because Bjoern's one has an executable test and it fails for some reason
 COPY files/whooshcrontab /galaxy-central
-COPY files/tfwelcome.html $GALAXY_ROOT/lib/galaxy/web/framework/static/welcome.html
+COPY files/tfwelcome.html /export/welcome.html
 COPY files/galaxy.yml files/datatypes_conf.xml files/tool_shed.yml files/tool_sheds_conf.xml  /etc/galaxy/
 COPY files/galaxy.yml files/datatypes_conf.xml files/tool_shed.yml files/tool_sheds_conf.xml $GALAXY_ROOT/config/
 
