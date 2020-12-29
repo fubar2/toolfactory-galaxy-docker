@@ -444,7 +444,7 @@ if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]
         if [ -f /export/post-start-actions.sh ]
             then
            # uses ephemeris, present in docker-galaxy-stable, to wait for the local instance
-           /tool_deps/_conda/bin/galaxy-wait -g http://localhost -v --timeout 120 > $GALAXY_LOGS_DIR/post-start-actions.log &&
+           /tool_deps/_conda/bin/galaxy-wait -g http://127.0.0.1 -v --timeout 120 > $GALAXY_LOGS_DIR/post-start-actions.log &&
            /export/post-start-actions.sh >> $GALAXY_LOGS_DIR/post-start-actions.log
     fi
 fi
@@ -452,7 +452,7 @@ fi
 # Reinstall tools if the user want to
 if [[ ! -z $GALAXY_AUTO_UPDATE_TOOLS ]]
     then
-        /tool_deps/_conda/bin/galaxy-wait -g http://127.0.0.1 -v --timeout 120 > /home/galaxy/logs/post-start-actions.log &&
+        /tool_deps/_conda/bin/galaxy-wait -g http://127.0.0.1 -v --timeout 120 >> /home/galaxy/logs/post-start-actions.log &&
         OLDIFS=$IFS
         IFS=','
         for TOOL_YML in `echo "$GALAXY_AUTO_UPDATE_TOOLS"`

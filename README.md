@@ -4,12 +4,15 @@
 
 A Galaxy IDE for tool wrappers. Ideal for simple tools. GUI is not ideal for complex ones. Although the ToolFactory should cope, your patience may not.
 Turns Galaxy into an integrated development environment for tool builders.
-It won't suit every tool or every tool builder. Available from quay.io/fubar2/toolfactory-galaxy-docker but you probably want a
+It won't suit every tool or every tool builder but some may find it useful. Perfect for creating simple, custom workflow components requiring system
+utilities like sed or awk, or any Conda package and dependencies.
+
+Available from quay.io/fubar2/toolfactory-galaxy-docker but you probably want a
 startup script like the ones provided here as samples to set all the ports and volumes.
 
-Update: Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF
-
-Update: Video hello world demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing
+Updates:<ul><li>Might soon be served in planemo with ``planemo tool_factory --galaxy_root .....``  PR submitted to resurrect the TF</li>
+<li>Video *hello world* demonstration https://drive.google.com/file/d/1xpkcVGQ0jRdG78Kt-qLwqeFpE3RnSRsK/view?usp=sharing</li>
+</ul>
 
 ## Overview
 
@@ -27,7 +30,7 @@ contain a test and can optionally be installed into the docker Galaxy for furthe
 
 ## Security warning for this container.
 
-*This container must be run in privileged mode, exposing important potential security risks*
+*This container must be run in privileged mode, exposing potential security risks*
 
 The TF is a specialised tool that requires a privileged docker container, based on docker-galaxy-stable. Although
 the TF tool will only run for administrative tool builders, you are strongly advised not to expose this container on any
@@ -165,8 +168,7 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
 
 4. If the test fails, rerun the failed history job and correct errors on the tool form before rerunning until everything works correctly.
 
-![IHello example ToolFactory tool form](files/hello_toolfactory_form.png?raw=true "Part of the Hello world example ToolFactory tool form")
-
+![How it works](files/TFasIDE.png?raw=true "Overview of the ToolFactory and using it as an Integrated Development Environment")
 
 ## Planning and building new Galaxy tool wrappers.
 
@@ -185,6 +187,11 @@ for the executable. Only Conda is currently supported.
 If a script is needed, it can be pasted into a text box and the interpreter named. Available system executables
 can be used such as bash, or an interpreter such as python, perl or R can be nominated as conda dependencies
 to ensure reproducible analyses.
+
+The hello example uses a bash script to echo a string with a parameter substitution supplied by the user for example
+
+![IHello example ToolFactory tool form](files/hello_toolfactory_form.png?raw=true "Part of the Hello world example ToolFactory tool form")
+
 
 The tool form will be generated from the input data and the tool builder supplied parameters. The command line for the
 executable is built using positional or argparse (named e.g. --input_file /foo/baz) style
