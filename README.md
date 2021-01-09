@@ -168,7 +168,7 @@ Steps in building a new Galaxy tool are all conducted through Galaxy running in 
 
 4. If the test fails, rerun the failed history job and correct errors on the tool form before rerunning until everything works correctly.
 
-![How it works](files/TFasIDE.png?raw=true "Overview of the ToolFactory and using it as an Integrated Development Environment")
+![How it works](files/TFasIDE.png?raw=true "Overview of the ToolFactory as an Integrated Development Environment")
 
 ## Planning and building new Galaxy tool wrappers.
 
